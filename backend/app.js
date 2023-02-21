@@ -78,6 +78,7 @@ app.use((err, _req, _res, next) => {
       err.title = 'Validation error';
       err.errors = errors;
     }
+    //go to next error
     next(err);
   });
 
