@@ -4,20 +4,15 @@ const bcrypt = require('bcryptjs');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     toSafeObject() {
-      const { id, username, email } = this; // context will be the User instance
-      return { id, username, email };
-    }
-    static associate(models) {
-      // define association here
+      const { id, firstName, lastName, email, username} = this; // context will be the User instance
+      return { id, firstName, lastName, email, username};
     }
     validatePassword(password) {
       return bcrypt.compareSync(password, this.hashedPassword.toString());
     }
-
     static getCurrentUserById(id) {
       return User.scope("currentUser").findByPk(id);
     }
-
     static async login({ credential, password }) {
       const { Op } = require('sequelize');
       const user = await User.scope('loginUser').findOne({
@@ -32,18 +27,24 @@ module.exports = (sequelize, DataTypes) => {
         return await User.scope('currentUser').findByPk(user.id);
       }
     }
-    static async signup({ username, email, password }) {
+    static async signup({ username, email, password, firstName, lastName }) {
       const hashedPassword = bcrypt.hashSync(password);
       const user = await User.create({
         username,
         email,
-        hashedPassword
+        hashedPassword,
+        firstName,
+        lastName
       });
       return await User.scope('currentUser').findByPk(user.id);
     }
+    static associate(models) {
+      // define association here
 
 
+    }
   };
+
   User.init(
     {
       username: {
@@ -72,6 +73,14 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           len: [60, 60]
         }
+      },
+      firstName: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
+      lastName: {
+        type: DataTypes.STRING,
+        allowNull: false
       }
     },
     {
@@ -79,12 +88,12 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "User",
       defaultScope: {
         attributes: {
-          exclude: ["hashedPassword", "email", "createdAt", "updatedAt"]
+          exclude: ["hashedPassword", "email", "createdAt", "updatedAt", 'firstName', 'lastName']
         }
       },
       scopes: {
         currentUser: {
-          attributes: { exclude: ["hashedPassword"] }
+          attributes: { exclude: ["hashedPassword","createdAt", "updatedAt"] }
         },
         loginUser: {
           attributes: {}

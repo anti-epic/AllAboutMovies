@@ -1,4 +1,7 @@
-"use strict";
+'use strict';
+/** @type {import('sequelize-cli').Migration} */
+
+
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
@@ -6,8 +9,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Users", {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('Users', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,7 +20,7 @@ module.exports = {
       username: {
         type: Sequelize.STRING(30),
         allowNull: false,
-        unique: true
+        unique: true,
       },
       email: {
         type: Sequelize.STRING(256),
@@ -26,6 +29,14 @@ module.exports = {
       },
       hashedPassword: {
         type: Sequelize.STRING.BINARY,
+        allowNull: false
+      },
+      firstName: {
+        type: Sequelize.STRING(30),
+        allowNull: false
+      },
+      lastName: {
+        type: Sequelize.STRING(30),
         allowNull: false
       },
       createdAt: {
@@ -38,10 +49,12 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-    }, options);
+    },options);
   },
   down: async (queryInterface, Sequelize) => {
     options.tableName = "Users";
     return queryInterface.dropTable(options);
   }
 };
+
+
