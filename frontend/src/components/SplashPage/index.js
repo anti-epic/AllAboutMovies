@@ -1,6 +1,6 @@
 import React from 'react';
 import './SplashPage.css';
-
+import Trending from '../Trending';
 const SplashPage = () => {
 
 
@@ -12,6 +12,9 @@ const SplashPage = () => {
                 Welcome.
                 </div >
                 <div className='splashMessage'>Millions of movies, TV shows and people to discover. Explore now </div>
+            </div>
+            <div className='trending'>
+              <Trending />
             </div>
 
     </div>

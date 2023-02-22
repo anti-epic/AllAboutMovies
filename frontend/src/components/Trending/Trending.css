@@ -1,0 +1,48 @@
+.trendingMoviesDay{
+ display: flex;
+ overflow: hidden;
+ margin-top: 1em;
+}
+
+.trendingSingleMovieDay {
+
+    margin-left: 1em;
+}
+
+
+.trendingSingleMovieDayImage{
+    width:8em;
+    height: 10em;
+    z-index: 1;
+}
+
+.trendingSingleMovieTitleContainer {
+
+}
+.trendingSingleMovieTitle {
+    text-align: left;
+    margin-left:.5em;
+    position: relative;
+    font-size: 14px;
+    font-weight: 700;
+    color:black;
+}
+
+.trendingSingleMovieRating{
+    display: flex;
+    position: relative;
+    border:1px solid #102440;;
+    width:2em;
+    height: 2em;
+    background-color: #081c22;
+    color:white;
+   justify-content: center;
+    border-radius: 1em;
+    align-items: center;
+    margin-left:.2em;
+    margin-top: -1em;
+    z-index: 100;
+}
+.fa-percent {
+margin-left: .1em;
+}
