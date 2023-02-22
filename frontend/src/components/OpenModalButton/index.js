@@ -1,3 +1,4 @@
+// frontend/src/components/OpenModalButton/index.js
 import React from 'react';
 import { useModal } from '../../context/Modal';
 
@@ -16,7 +17,7 @@ function OpenModalButton({
   };
 
   return (
-    <button onClick={onClick}>{buttonText}</button>
+    <button onClick={onClick}>{buttonText} <i className="fa-solid fa-clapperboard"></i></button>
   );
 }
 

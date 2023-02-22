@@ -1,0 +1,70 @@
+.NavBarContainer {
+    border: 1px solid black;
+    background-color:#102440;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    height:3.1em;
+}
+
+.navTitle {
+    display: grid;
+    text-decoration: none;
+    width:12em;
+    grid-template-columns: .15fr 1fr;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 100;
+    /* font-family: 'Tilt Prism', cursive; */
+    /* font-family: 'Wallpoet', cursive; */
+    font-family: 'Rubik 80s Fade', cursive;
+ /* rgba(225, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 61%), linear-gradient(rgb(97, 183, 217) 52%,  60%, rgb(78, 99, 132) 61%); */
+    color:  rgba(255, 255, 255, 1) ;
+}
+
+
+
+.NavLogoImage{
+    width:3em;
+
+
+}
+
+
+body {
+    padding: 0px;
+    margin:0px;
+}
+
+.navUserInfo{
+    position: absolute;
+}
+
+.navButton button{
+    margin-left:4em;
+    font-size: 14px;
+    border: 0;
+    font-family: 'Alfa Slab One', cursive;
+    color: white;
+    background-color:#102440;
+    cursor: pointer;
+}
+
+
+
+.userNavButton{
+    margin-left:4em;
+    font-size: 14px;
+    border: 0;
+    font-family: 'Alfa Slab One', cursive;
+    color: white;
+    background-color:#102440;
+    cursor: pointer;
+    display: grid;
+}
+
+.userNavMenu{
+    border:1px solid red;
+}

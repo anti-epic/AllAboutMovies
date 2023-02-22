@@ -1,0 +1,31 @@
+.splashBanner{
+    display: grid;
+    height: 20em;
+    background-size: cover;
+    background-position-y: 25%;
+}
+
+.splashWelcome{
+    display: grid;
+    height: 2em;
+    font-size: 22px;
+    font-weight: bolder;
+    margin-top: 6em;
+    margin-bottom: 0px;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+
+.splashMessage{
+    display: grid;
+    height: 2em;
+    margin-bottom: 5em;
+    margin-top: -1em;
+    font-size: 22px;
+    font-weight: bolder;
+    justify-content: center;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
