@@ -13,10 +13,11 @@ let movie =[];
 
 
 const {movieId} = useParams();
+
+
 const movieObj = useSelector(state => {
     return state.movie
 })
-
 const genres = useSelector(state => {
     return state.movie.genres
 })
@@ -26,6 +27,7 @@ const releaseDate = useSelector(state => {
 const runtime = useSelector(state => {
     return state.movie.runtime
 })
+
 
 if(movieObj){
 movie = Object.values(movieObj);
