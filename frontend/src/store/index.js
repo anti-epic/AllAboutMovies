@@ -2,12 +2,13 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from './session';
 import trending from './trending'
-
+import movie from './movie'
 
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  trending
+  trending,
+  movie
 });
 
 

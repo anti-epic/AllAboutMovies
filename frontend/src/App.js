@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import SplashPage from './components/SplashPage'
+import MoviePage from "./components/MoviePage";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -17,6 +18,7 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route exact path='/' component={SplashPage} />
+          <Route path='/movie/:movieId' component={MoviePage} />
         </Switch>
       )}
     </>
