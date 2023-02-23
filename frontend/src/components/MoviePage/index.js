@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import './MoviePage.css'
 import { getMovie } from '../../store/movie';
-
+import Reviews from '../Reviews'
 
 
 export default function MoviePage() {
@@ -58,7 +58,10 @@ console.log(movieObj, 'here')
     <div className='singleMovieDescription'>{movieObj.overview}</div>
     </div>
             <div className='overlay'></div>
+    <button className='createReviewButton'>Leave A Review</button>
+
             </div>
+            <div> <Reviews/></div>
         </div>
     ) : (<> loading movie data</>)
 }
