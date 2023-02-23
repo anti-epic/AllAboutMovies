@@ -8,9 +8,9 @@
 .splashWelcome{
     display: grid;
     height: 2em;
-    font-size: 22px;
+    font-size: 40px;
     font-weight: bolder;
-    margin-top: 6em;
+    margin-top: 2em;
     margin-bottom: 0px;
     justify-content: center;
     color: white;

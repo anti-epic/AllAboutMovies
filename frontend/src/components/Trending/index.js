@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {NavLink} from 'react-router-dom'
+import {NavLink, useHistory} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import { getTrendingMoviesByDay, getTrendingMoviesByWeek } from '../../store/trending';
@@ -10,8 +10,8 @@ export default function Trending(){
     let trendingTodayMovies = []
     let trendingWeekMovies = []
     const dispatch = useDispatch()
+	const [isLoaded, setIsLoaded] = useState(false);
     const [trending, setTrending] = useState(1);
-
     const trendingTodayMoviesObj = useSelector(state => {
         return state.trending.day
     })
@@ -26,18 +26,22 @@ export default function Trending(){
     }
 
     useEffect(() => {
-        dispatch(getTrendingMoviesByDay())
-        dispatch(getTrendingMoviesByWeek())
+        dispatch(getTrendingMoviesByDay()).then(() => {
+		dispatch(getTrendingMoviesByWeek())
+		}).then(() => {
+            setIsLoaded(true);
+        })
 
     },[dispatch, trendingTodayMovies.length, trendingWeekMovies.length])
 
     if(!trendingTodayMovies || !trendingWeekMovies) {
         return null}
-    return trendingTodayMovies && trendingWeekMovies && trending ? (<>
+    return isLoaded ? (<>
        <div className='trendingButtonsContainer'> <div className='trendingButtonHeader'>Trending</div><button autoFocus onClick={() => setTrending(1)}>Today</button><button  onClick={() => setTrending(2)}>This Week</button></div>
         <div className='trendingMovies' style={{backgroundImage: `url("./movie-background.png")`,  backgroundSize: 'contain'}}>
+
             {
-                trending === 1 && (
+                trending == 1 && (
                             <>
                     {trendingTodayMovies.map((movie) => (
                         movie  ? (<div className='trendingSingleMovie'>
@@ -82,5 +86,5 @@ export default function Trending(){
 
         </div>
         </>
-    ) : ( <div> nothing</div>)
+    ) : ( <div> loading movies</div>)
 }
