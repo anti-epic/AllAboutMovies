@@ -72,3 +72,22 @@
     margin-top:10em;
 
 }
+
+
+.createReviewButton{
+    display: flex;
+    align-content:  flex-end;
+    position: absolute;
+    bottom: 1em;
+    border: 0px;
+    color: white;
+    background-color: transparent;
+    font-size: 18px;
+    right: 5em;
+    border-bottom: 10px solid #081220;
+    border-radius: 40px;
+    cursor: pointer;
+}
+.createReviewButton:hover, .createReviewButton:active,.createReviewButton:visited  {
+    background-color: transparent;
+}

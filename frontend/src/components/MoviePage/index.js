@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import './MoviePage.css'
 import { getMovie } from '../../store/movie';
-
+import Reviews from '../Reviews'
 
 
 export default function MoviePage() {
@@ -13,10 +13,11 @@ let movie =[];
 
 
 const {movieId} = useParams();
+
+
 const movieObj = useSelector(state => {
     return state.movie
 })
-
 const genres = useSelector(state => {
     return state.movie.genres
 })
@@ -26,6 +27,7 @@ const releaseDate = useSelector(state => {
 const runtime = useSelector(state => {
     return state.movie.runtime
 })
+
 
 if(movieObj){
 movie = Object.values(movieObj);
@@ -56,7 +58,10 @@ console.log(movieObj, 'here')
     <div className='singleMovieDescription'>{movieObj.overview}</div>
     </div>
             <div className='overlay'></div>
+    <button className='createReviewButton'>Leave A Review</button>
+
             </div>
+            <div> <Reviews/></div>
         </div>
     ) : (<> loading movie data</>)
 }

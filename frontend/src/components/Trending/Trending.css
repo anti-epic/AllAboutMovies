@@ -63,14 +63,14 @@
 margin-left: .1em;
 }
 
-button:focus {
+.buttonOptions:focus {
     background-color: #102440;
     color:white;
     border:0px;
     text-decoration:none;
 }
 
-button {
+.buttonOptions {
     border-radius: 25px;
     border:0px;
     text-decoration:none;

@@ -3,12 +3,13 @@ import thunk from "redux-thunk";
 import sessionReducer from './session';
 import trending from './trending'
 import movie from './movie'
-
+import review from './review'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   trending,
-  movie
+  movie,
+  review
 });
 
 
