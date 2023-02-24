@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import './Reviews.css'
 import { getReviews } from '../../store/review';
+import DeleteReview from '../DeleteReview';
 
 
 
@@ -13,7 +14,7 @@ export default function Reviews() {
     const {movieId} = useParams();
     let reviews = []
 
-
+    let sessionUser = useSelector(state => state.session.user);
     const reviewsObj = useSelector(state => {
         return state.review
     })
@@ -23,7 +24,7 @@ export default function Reviews() {
         reviews = Object.values(reviewsObj)
     }
 
-
+    console.log(sessionUser.id, 'session use here')
 
     useEffect(() => {
     dispatch(getReviews(movieId))
@@ -36,6 +37,7 @@ export default function Reviews() {
             <div className='reviewsContainer'>
                {reviews.map((review) =>  review.User ?(
                 <div className='singleReviewContainer'>
+                    {review.User.id === sessionUser.id ? (<div><DeleteReview reviewId={review.id} /></div>):(<></>)}
                     <div className='singleReviewBody'>"{review.body}" </div>
                     <div className='singleReviewUser'> User:{review.User.firstName} </div>
                     </div>
