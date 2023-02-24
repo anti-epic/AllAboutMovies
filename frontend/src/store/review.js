@@ -2,7 +2,7 @@ import { csrfFetch } from "./csrf";
 
 
 const LOAD_REVIEWS = '/reviews/LOAD';
-
+const ADD_REVIEW = '/review/ADD'
 
 
 const loadReviews = (reviews) => {
@@ -12,21 +12,41 @@ const loadReviews = (reviews) => {
     };
 };
 
+const addReview = (review) => {
+    return {
+        type: ADD_REVIEW,
+        review
+    };
+}
+
 
 
 export const getReviews = (id) => async dispatch => {
-    console.log('this is the id', id)
     const response = await csrfFetch(`/api/movies/${id}/reviews`)
-
     if (response.ok) {
         const reviews = await response.json();
-        console.log(reviews, 'its ok')
         dispatch(loadReviews(reviews));
       }
-      console.log('im down here')
-    //  const responseUser = await csrfFetch(``)
+
 
 };
+
+
+export const createReviewThunk = (payload, id) => async dispatch => {
+    console.log(payload, id, ' in create review thunk')
+    const response = await csrfFetch(`/api/movies/${id}/reviews`, {
+        method: 'POST',
+        headers: {"Content-Type" : "application/json"},
+        body: JSON.stringify(payload)
+    })
+    if(response.ok){
+        console.log('create response ok')
+        const data = await response.json();
+        dispatch(addReview(data))
+    }
+
+}
+
 
 
 const initialState = {
@@ -44,6 +64,11 @@ const reviewReducer = (state = initialState, action) => {
                 })
             }
         return newState
+        case ADD_REVIEW:
+            const addReviewState = {...state};
+            console.log('in create reducer', action)
+            addReviewState[action.review.id] = action.review;
+            return addReviewState
         default:
             return state
 
