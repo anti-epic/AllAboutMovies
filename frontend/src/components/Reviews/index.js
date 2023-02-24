@@ -37,7 +37,7 @@ export default function Reviews() {
                {reviews.map((review) =>  review.User ?(
                 <div className='singleReviewContainer'>
                     <div className='singleReviewBody'>"{review.body}" </div>
-                    <div className='singleReviewUser'> {review.User.firstName} </div>
+                    <div className='singleReviewUser'> User:{review.User.firstName} </div>
                     </div>
                ) : (<div>loading </div>))}
             </div>
