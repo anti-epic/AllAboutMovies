@@ -18,6 +18,7 @@ export default function Reviews() {
         return state.review
     })
 
+
     if(reviewsObj){
         reviews = Object.values(reviewsObj)
     }
@@ -33,12 +34,12 @@ export default function Reviews() {
     }
        return reviews ? (
             <div className='reviewsContainer'>
-               {reviews.map((review) => (
+               {reviews.map((review) =>  review.User ?(
                 <div className='singleReviewContainer'>
                     <div className='singleReviewBody'>"{review.body}" </div>
                     <div className='singleReviewUser'> {review.User.firstName} </div>
                     </div>
-               ))}
+               ) : (<div>loading </div>))}
             </div>
         ) : (<> loading reviews</>)
     }
