@@ -8,6 +8,8 @@ import Reviews from '../Reviews'
 import CreateReview from '../CreateReview';
 import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
+import UpdateReview from '../UpdateReview';
+
 
 
 
@@ -16,8 +18,6 @@ export default function MoviePage() {
 const dispatch = useDispatch()
 let movie =[];
 let reviews = [];
-
-
 
 
 const {movieId} = useParams();
@@ -48,8 +48,14 @@ const runtime = useSelector(state => {
 const reviewObj = useSelector(state => {
     return state.review
 })
+
+
+
+
 if (reviewObj) {
     reviews = Object.values(reviewObj)
+
+
 }
 
 
@@ -60,16 +66,16 @@ movie = Object.values(movieObj);
 }
 
 for (let i = 0; i < reviews.length; i++) {
-    console.log(reviews[i].userId, sessionUser.id)
     if (reviews[i].User && reviews[i].userId === sessionUser.id) {
-        alreadyReviewed = 'modalComponent'
+        alreadyReviewed = 'modalComponent';
     }
 }
 
 
 useEffect(() => {
 dispatch(getMovie(movieId))
-console.log(movieObj, 'here', reviews.length, 'length')},[dispatch, movieId, reviews.length])
+},[dispatch, movieId, reviews.length])
+
 
 
 
@@ -104,7 +110,11 @@ console.log(movieObj, 'here', reviews.length, 'length')},[dispatch, movieId, rev
         <div className='disabledCreateReview'>
             {
             isLoggedIn ? (
-                <OpenModalMenuItem itemText="Already reviewed"/>
+< OpenModalMenuItem itemText = "Update Review"
+modalComponent = {
+    <UpdateReview/>} />
+
+
             ) : (
                 <OpenModalMenuItem itemText="Leave a review"
                     modalComponent={<LoginFormModal/>}/>
