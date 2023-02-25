@@ -13,18 +13,21 @@ export default function Reviews() {
     const dispatch = useDispatch()
     const {movieId} = useParams();
     let reviews = []
-
-    let sessionUser = useSelector(state => state.session.user);
+    let sessionUser
+     sessionUser = useSelector(state => state.session.user);
     const reviewsObj = useSelector(state => {
         return state.review
     })
+    if(!sessionUser){
+        sessionUser = Infinity
+    }
 
 
     if(reviewsObj){
         reviews = Object.values(reviewsObj)
     }
 
-    console.log(sessionUser.id, 'session use here')
+    console.log(sessionUser.id, 'session use here', sessionUser)
 
     useEffect(() => {
     dispatch(getReviews(movieId))
@@ -35,12 +38,13 @@ export default function Reviews() {
     }
        return reviews ? (
             <div className='reviewsContainer'>
-               {reviews.map((review) =>  review.User ?(
+               {reviews.map((review) =>  review.User ?(<>
+                    { (sessionUser !== Infinity && review.User.id === sessionUser.id) ? (<div><DeleteReview className="foundme" reviewId={review.id} /></div>):(<></>)}
                 <div className='singleReviewContainer'>
-                    {review.User.id === sessionUser.id ? (<div><DeleteReview reviewId={review.id} /></div>):(<></>)}
                     <div className='singleReviewBody'>"{review.body}" </div>
-                    <div className='singleReviewUser'> User:{review.User.firstName} </div>
+                    <div className='singleReviewUser'> username - {review.User.username} </div>
                     </div>
+               </>
                ) : (<div>loading </div>))}
             </div>
         ) : (<> loading reviews</>)
