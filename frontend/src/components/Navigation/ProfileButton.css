@@ -1,0 +1,7 @@
+.userNavMenu {
+    position: relative;
+    z-index: 100;
+    top: 1em;
+    background-color: white;
+
+}
