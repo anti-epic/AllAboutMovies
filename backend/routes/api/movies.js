@@ -30,10 +30,9 @@ for(let i = 0; i < reviews.length; i++){
     let currReviewUser = currReview.userId
 
     user = await User.findByPk(currReviewUser, {
-        attributes: ['id', 'firstName', 'lastName']
+        attributes: ['id', 'username']
     })
     currReview.User = user.dataValues
-    console.log(currReview, 'lol')
 }
 return res.json({reviews})
 });

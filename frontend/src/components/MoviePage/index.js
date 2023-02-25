@@ -100,40 +100,29 @@ dispatch(getMovie(movieId))
     <div className='singleMovieDescription'>{movieObj.overview}</div>
     </div>
             <div className='overlay'></div>
-< div className = 'leaveReviewButton' > {
-    (alreadyReviewed === false) && (sessionUser.id !== undefined) ? (
-
-        <OpenModalMenuItem itemText="Leave A Review"
-            modalComponent={<CreateReview/>}/>
-    ) : (
-
-        <div className='disabledCreateReview'>
-            {
-            isLoggedIn ? (
-< OpenModalMenuItem itemText = "Update Review"
-modalComponent = {
-    <UpdateReview/>} />
-
-
-            ) : (
-                <OpenModalMenuItem itemText="Leave a review"
-                    modalComponent={<LoginFormModal/>}/>
-            )
-        } </div>
-    )
-
-
-}
 
 
 </div>
+<div>
+< div className = 'leaveReviewButton' > {
+    (alreadyReviewed === false) && (sessionUser.id !== undefined) ? (
 
+        <OpenModalMenuItem itemText="Leave A Review"modalComponent={<CreateReview/>}/>
+    ) : (
 
-
-            </div>
-            <div> <Reviews/></div>
+        <div className='disabledCreateReview'>
+            {isLoggedIn ? (
+< OpenModalMenuItem itemText = "Update Review" modalComponent = {<UpdateReview/>} />
+            ) : (
+                <OpenModalMenuItem itemText="Leave a review" modalComponent={<LoginFormModal/>}/>
+            )
+        } </div>
+    )
+}
+        </div>
+            <Reviews/></div>
 < div > </div>
-
+<div class="bar" style={"--percent: 50"}> </div>
 
         </div>
     ) : (<> loading movie data</>)

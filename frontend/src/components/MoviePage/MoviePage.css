@@ -4,6 +4,8 @@
     border: 1px solid black;
     position: relative;
     color:white;
+    border-top: 0.3em solid #081220;
+    border-bottom: 0.3em solid #081220;
 }
 .singleMovieDescription{
     position:relative;
@@ -92,20 +94,86 @@
     background-color: transparent;
 }
 
-.leaveReviewButton button {
-    display: grid;
-    position: absolute;
-    bottom: 2em;
-    right: 2em;
-    width:10em;
-    border:0px;
-    border-radius: 12px;
-
-}
-
-
 
 .disabledCreateReview button{
     background-color: grey;
     color:black
+
+
 }
+
+
+
+
+
+
+.leaveReviewButton button {
+    cursor: pointer;
+    color: #92aaca;
+    font-size: 16px;
+    border: 0.3em solid #081220;
+    border-radius: 0.5em;
+    width: 12em;
+    height: 3em;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: .2em;
+    margin-top:2em;
+    margin-bottom: 3.5em;
+    margin-left:78.7em;
+
+
+}
+
+
+.leaveReviewButton button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    height: 100%;
+    background:linear-gradient(90deg, transparent, #ffffff71, transparent);
+    transform: translateX(-180px) skew(-20deg);
+    transition: transform 0.4s;
+}
+
+.leaveReviewButton button:hover::before {
+    transform: translateX(220px) skew(-20deg)
+}
+
+
+
+.bar {
+    background-image:
+      linear-gradient(red, red),
+      linear-gradient(orange, orange),
+      linear-gradient(purple, purple),
+      linear-gradient(#2486ff, #2486ff),
+      linear-gradient(green, green);
+
+    background-size: 10%,
+      30%,
+      50%,
+      70%,
+      90%;
+
+    background-repeat: no-repeat;
+
+    color: #fff;
+    height: 100px;
+  }
+
+  .bar::before {
+    counter-reset: progress var(--percent);
+    content: counter(progress) '%\2002';
+    display: flex;
+    justify-content: end;
+    white-space: nowrap;
+  }
