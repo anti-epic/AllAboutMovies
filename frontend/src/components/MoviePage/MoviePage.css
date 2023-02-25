@@ -104,6 +104,10 @@
 
 
 
+.leaveReviewButton{
+    display: grid;
+    justify-content: center;
+}
 
 
 
@@ -126,7 +130,7 @@
     margin: .2em;
     margin-top:2em;
     margin-bottom: 3.5em;
-    margin-left:78.7em;
+
 
 
 }
@@ -147,33 +151,7 @@
 .leaveReviewButton button:hover::before {
     transform: translateX(220px) skew(-20deg)
 }
-
-
-
-.bar {
-    background-image:
-      linear-gradient(red, red),
-      linear-gradient(orange, orange),
-      linear-gradient(purple, purple),
-      linear-gradient(#2486ff, #2486ff),
-      linear-gradient(green, green);
-
-    background-size: 10%,
-      30%,
-      50%,
-      70%,
-      90%;
-
-    background-repeat: no-repeat;
-
-    color: #fff;
-    height: 100px;
-  }
-
-  .bar::before {
-    counter-reset: progress var(--percent);
-    content: counter(progress) '%\2002';
-    display: flex;
-    justify-content: end;
-    white-space: nowrap;
-  }
+.rContainer{
+    display: grid;
+    justify-content: center;
+}

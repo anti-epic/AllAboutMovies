@@ -103,7 +103,7 @@ dispatch(getMovie(movieId))
 
 
 </div>
-<div>
+<div className='rContainer'>
 < div className = 'leaveReviewButton' > {
     (alreadyReviewed === false) && (sessionUser.id !== undefined) ? (
 
@@ -122,7 +122,7 @@ dispatch(getMovie(movieId))
         </div>
             <Reviews/></div>
 < div > </div>
-<div class="bar" style={"--percent: 50"}> </div>
+
 
         </div>
     ) : (<> loading movie data</>)
