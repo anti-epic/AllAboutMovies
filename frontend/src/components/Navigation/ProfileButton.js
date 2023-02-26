@@ -40,9 +40,9 @@ function ProfileButton({ user }) {
       </button>
       <div className="userNavMenu">
       <ul className={ulClassName} ref={ulRef}>
-        <div>{user.username}</div>
-        <div>{user.firstName} {user.lastName}</div>
-        <div>{user.email}</div>
+        <div>username: {user.username}</div>
+        <div>name: {user.firstName} {user.lastName}</div>
+        <div>email: {user.email}</div>
         <div>
           <button onClick={logout}>Log Out</button>
         </div>
