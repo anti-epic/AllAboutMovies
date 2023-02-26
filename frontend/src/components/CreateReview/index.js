@@ -12,21 +12,16 @@ const CreateReview = () => {
     const dispatch = useDispatch();
 	const { closeModal } = useModal();
     const [review, setReview] = useState('');
-    const [stars, setStars] = useState(5);
 
 
     const movieObj = useSelector(state => {
         return state.movie
     })
     const movieId = movieObj.id
-    console.log(movieId, 'movieeeiddddd')
 
 
 const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(  'start',
-    review,
-    'end', movieId)
 
 
 
@@ -42,11 +37,11 @@ const handleSubmit = async (e) => {
     return(
 
     <div className='createReviewContainer'>
-        <div className='formTitle'> Create A Review</div>
+        <div className='createFormTitle'> Create A Review</div>
 
         <form className='createForm' onSubmit={handleSubmit}>
-        <input
-          type="text"
+        <textarea
+        className='reviewText'
           placeholder='Review'
           required
           value={review}

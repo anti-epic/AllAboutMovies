@@ -1,0 +1,48 @@
+.editContainer{
+    background-color: #102440;
+    color: white;
+    border:1px solid #102440;
+    border-radius: 20px;
+    display: grid;
+    width:35em;
+    justify-content: center;
+    display: grid;
+}
+
+
+.reviewText {
+    display: grid;
+    width: 25em;
+    margin-bottom: 1em;
+    margin-top: .5em;
+    height: 10em;
+    background-color: #cfd3d9;
+    color: #0d1d33;
+    border: 0px;
+}
+
+
+.submitUpdatedInfo{
+
+    justify-content: center;
+    width:25em;
+    margin-top: 2em;
+    height: 2em;
+    height: 3em;
+    text-align: center;
+    align-content: center;
+    cursor: pointer;
+    color: white;
+    font-weight: bolder ;
+    background-color: #586679;
+    border: 0px;
+    margin-bottom: 2em;
+}
+
+.updateFormTitle{
+    display: grid;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    margin-top: 1em;
+}
