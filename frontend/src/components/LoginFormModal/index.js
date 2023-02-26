@@ -17,7 +17,6 @@ function LoginFormModal() {
         return dispatch(sessionActions.login({credential, password})).then(closeModal).catch(async (res) => {
             const data = await res.json();
             if (data && data.errors){
-              console.log(data.errors)
               let errorMessage = Object.values(data.errors)
               setErrors(errorMessage);
             }
@@ -25,9 +24,9 @@ function LoginFormModal() {
         });
     };
 
-    return (<>
-        <h1>Log In</h1>
-        <form onSubmit={handleSubmit}>
+    return (<div className="loginContainer">
+        <h1 className="loginHeader">Log In</h1>
+        <form className="loginForm" onSubmit={handleSubmit}>
             <div className="errorContainer"> {errors.map((error, idx) => (<div key={idx}> {error}</div>))} </div>
             <label>
                 Username or Email
@@ -37,7 +36,7 @@ function LoginFormModal() {
                         (e) => setCredential(e.target.value)
                     }
                     required/>
-            </label>
+                    </label>
             <label>
                 Password
                 <input type="password"
@@ -46,10 +45,10 @@ function LoginFormModal() {
                         (e) => setPassword(e.target.value)
                     }
                     required/>
-            </label>
+                    </label>
             <button type="submit">Log In</button>
         </form>
-    </>);
+    </div>);
 }
 
 export default LoginFormModal;

@@ -1,3 +1,66 @@
 .errorContainer {
    color: red;
+   display: grid;
+   justify-content: center;
+   margin-bottom: 1em;
+}
+
+
+.loginHeader{
+display: grid;
+text-align: center;
+}
+.loginContainer{
+    background-color: #102440;
+    width:30em;
+    height: 22em;
+    display: grid;
+    color: white;
+    border:1px solid #102440;
+    border-radius: 20px;
+    text-align: center;
+}
+
+
+.loginForm{
+    display: grid;
+    justify-content: center;
+    margin: 1em;
+    font-weight: bolder;
+    text-align: center;
+}
+.loginForm input{
+    width:25em;
+    border:0px;
+    justify-content: center;
+    border-radius: 2px;
+    height: 1.5em;
+    margin-bottom: 1em;
+    margin-top: .5em;
+    background-color: #cfd3d9;
+    color: #0d1d33;
+    border: 0px;
+
+}
+
+.loginForm label {
+    display: grid;
+}
+
+
+.loginForm button {
+
+    justify-content: center;
+    width:25em;
+    margin-top: 2em;
+    height: 2em;
+    height: 3em;
+    text-align: center;
+    align-content: center;
+    cursor: pointer;
+    color: white;
+    background-color: #586679;
+    font-weight: bolder ;
+    border: 0px;
+    margin-bottom: 2em;
 }
