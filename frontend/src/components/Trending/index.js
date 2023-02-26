@@ -25,6 +25,9 @@ export default function Trending(){
         trendingWeekMovies = Object.values(trendingWeekMoviesObj.movies)
     }
 
+
+    
+
     useEffect(() => {
         dispatch(getTrendingMoviesByDay()).then(() => {
 		dispatch(getTrendingMoviesByWeek())
@@ -37,7 +40,9 @@ export default function Trending(){
     if(!trendingTodayMovies || !trendingWeekMovies) {
         return null}
     return isLoaded ? (<>
-       <div className='trendingButtonsContainer'> <div className='trendingButtonHeader'>Trending</div><button className='buttonOptions' autoFocus onClick={() => setTrending(1)}>Today</button><button  className='buttonOptions' onClick={() => setTrending(2)}>This Week</button></div>
+       <div className='trendingButtonsContainer'> <div className='trendingButtonHeader'>Trending</div><button className='buttonOptions' autoFocus
+
+       onClick={() => setTrending(1)}>Today</button><button  className='buttonOptions' onClick={() => setTrending(2)}>This Week</button></div>
         <div className='trendingMovies' style={{backgroundImage: `url("./movie-background.png")`,  backgroundSize: 'contain'}}>
 
             {

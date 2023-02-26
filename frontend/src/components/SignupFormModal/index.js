@@ -27,20 +27,22 @@ function SignupFormModal() {
                 password
             })).then(closeModal).catch(async (res) => {
                 const data = await res.json();
-                if (data && data.errors)
-                    setErrors(data.errors);
+                if (data && data.errors){
+                    let errorMessage = Object.values(data.errors)
+                    setErrors(errorMessage);
+                }
 
             });
         }
-        return setErrors(['Confirm Password field must be the same as the Password field']);
+        return setErrors(['Confirm Password and Password do not match']);
     };
 
     return (<div className="signupContainer">
-        <h1>Sign Up</h1>
-        <form onSubmit={handleSubmit}>
-            <ul> {
-                errors.map((error, idx) => <li key={idx}> {error}</li>)
-            } </ul>
+        <h1 className="signupHeader">Sign Up</h1>
+        <form className="signupForm" onSubmit={handleSubmit}>
+            <div className="errorContainer"> {
+                errors.map((error, idx) => <div key={idx}> {error}</div>)
+            } </div>
             <label>
                 Email
                 <input type="text"
