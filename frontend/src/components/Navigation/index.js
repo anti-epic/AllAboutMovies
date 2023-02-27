@@ -30,6 +30,7 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <div className='navUserInfo'>
         <ProfileButton user={sessionUser} />
+        <NavLink to={`/watchlist`}>WatchList</NavLink>
       </div>
     );
   } else {

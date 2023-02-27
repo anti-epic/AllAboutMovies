@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import trending from './trending'
 import movie from './movie'
 import review from './review'
+import watchlist from './watchlist'
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   trending,
   movie,
-  review
+  review,
+  watchlist
 });
 
 
