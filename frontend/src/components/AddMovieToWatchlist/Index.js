@@ -51,6 +51,7 @@ export default function AddMovieToWatchlist ({movieId}) {
         if(usersWatchlistObj[movieId]){
             setOnWatchlist(true)
         }
+  
 
 
     },[dispatch, onWatchlist, movieId])
