@@ -12,7 +12,6 @@ router.get('/:movieId/:title/:image/reviews', async (req ,res, next) => {
 let {movieId, title, image} = req.params;
 let movieChecker = await Movie.findByPk(movieId);
 if(!movieChecker){
-
     const movieData = {
         title,
         image: `https://image.tmdb.org/t/p/w500/${image}`
@@ -42,14 +41,23 @@ return res.json({reviews})
 });
 
 
-router.post('/:movieId/reviews', async (req ,res, next) => {
+router.post('/:movieId/:title/:image/reviews', async (req ,res, next) => {
 const {movieId} = req.params;
 const {body} = req.body
 const userId = req.user.id
 const movie = await Movie.findByPk(movieId);
 if(!movie){
-    res.statusCode =404;
-    return res.json({"message": "movie can not be found", "statusCode": res.statusCode})
+    console.log('movie not found creating a new one',movieId, " ", title, " ", image)
+    const movieData = {
+        title,
+        image: `https://image.tmdb.org/t/p/w500/${image}`
+    }
+    console.log(movieData, 'moviedata here')
+    const createMovieLink =  await Movie.create({id:movieId, title: movieData.title, image: movieData.image})
+    let movieIdNumber = Number(movieId)
+    const newReview = await Review.create({body,userId,movieId: movieIdNumber})
+    res.statusCode = 201;
+    return res.json(newReview)
 }
 const userReviews = await Review.findAll({where: {userId}})
 userReviews.forEach(review => {
