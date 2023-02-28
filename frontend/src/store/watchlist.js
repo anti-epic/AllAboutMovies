@@ -38,9 +38,9 @@ export const deleteWatchlistThunk = (id) => async dispatch => {
 
 
 
-export const addWatchlistThunk = (id) => async dispatch => {
-    console.log( id, ' in create  watchlist thunk')
-    const response = await csrfFetch(`/api/watchlist/${id}`, {
+export const addWatchlistThunk = (payload,id) => async dispatch => {
+    console.log( id, ' in create  watchlist thunk', payload)
+    const response = await csrfFetch(`/api/watchlist/${id}/${payload.title}/${payload.image}`, {
         method: 'POST',
         headers: {"Content-Type" : "application/json"}
     })
