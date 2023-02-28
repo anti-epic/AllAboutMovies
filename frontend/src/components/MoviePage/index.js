@@ -95,9 +95,10 @@ for (let i = 0; i < reviews.length; i++) {
 useEffect(() => {
     const payload = {title, image}
 
-dispatch(getMovie(payload, movieId)).then((data) => {
-    dispatch(getWatchlist())
-}).then(() => {
+dispatch(getMovie(payload, movieId))
+.then((data) => {
+dispatch(getWatchlist())})
+.then(() => {
     if(usersWatchlistObj[movieId]){
         setOnWatchlist(true)
     }

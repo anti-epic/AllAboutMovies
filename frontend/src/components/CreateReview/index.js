@@ -1,16 +1,15 @@
-
 import React from 'react';
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { createReviewThunk } from '../../store/review';
-import { useHistory } from 'react-router-dom';
+import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {useParams} from 'react-router-dom';
+import {createReviewThunk} from '../../store/review';
+import {useHistory} from 'react-router-dom';
 import './CreateReview.css'
-import { useModal } from "../../context/Modal";
+import {useModal} from "../../context/Modal";
 const CreateReview = () => {
     const history = useHistory();
     const dispatch = useDispatch();
-	const { closeModal } = useModal();
+    const {closeModal} = useModal();
     const [review, setReview] = useState('');
     let title;
     let image;
@@ -19,57 +18,47 @@ const CreateReview = () => {
         return state.movie
     })
     const movieId = movieObj.id
-    if(movieObj){
+    if (movieObj) {
         console.log(movieObj, 'p')
         title = movieObj.title
         image = movieObj.poster_path
 
-        }
-
-const handleSubmit = async (e) => {
-    e.preventDefault();
-
-
-
-    const payload = {
-        title,
-        image,
-    body:review
     }
-    dispatch(createReviewThunk(payload, movieId)).then((data =>  history.push(`/movie/${movieId}`)));
-    closeModal();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
 
-}
+        const payload = {
+            title,
+            image,
+            body: review
+        }
+        dispatch(createReviewThunk(payload, movieId)).then((data => history.push(`/movie/${movieId}`)));
+        closeModal();
 
-    return(
 
-    <div className='createReviewContainer'>
-        <div className='createFormTitle'> Create A Review</div>
+    }
 
-        <form className='createForm' onSubmit={handleSubmit}>
-        <textarea
-        className='reviewText'
-          placeholder='Review'
-          required
-          value={review}
-          onChange={(e) => setReview(e.target.value)}
-          />
+    return (<div className='createReviewContainer'>
+        <div className='createFormTitle'>
+            Create A Review</div>
 
-        <input className='submitCreateInfo' type='submit' value='Create Review'></input>
+        <form className='createForm'
+            onSubmit={handleSubmit}>
+            <textarea className='reviewText' placeholder='Review' required
+                value={review}
+                onChange={
+                    (e) => setReview(e.target.value)
+                }/>
+
+            <input className='submitCreateInfo' type='submit' value='Create Review'></input>
 
         </form>
 
 
-
-    </div>
-
-
-
-
-    );
+    </div>);
 }
-
 
 
 export default CreateReview
