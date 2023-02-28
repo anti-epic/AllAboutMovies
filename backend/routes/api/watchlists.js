@@ -61,8 +61,8 @@ router.post('/:movieId', async (req ,res, next) => {
 //   })
   let movieIdNumber = Number(movieId)
   const newWatchlist = await Watchlist.create({userId,movieId: movieIdNumber})
-//   res.statusCode = 201;
-//   return res.json({newWatchlist})
+  res.statusCode = 201;
+  return res.json({newWatchlist})
   });
 
 
