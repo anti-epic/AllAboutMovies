@@ -12,13 +12,19 @@ const CreateReview = () => {
     const dispatch = useDispatch();
 	const { closeModal } = useModal();
     const [review, setReview] = useState('');
-
+    let title;
+    let image;
 
     const movieObj = useSelector(state => {
         return state.movie
     })
     const movieId = movieObj.id
+    if(movieObj){
+        console.log(movieObj, 'p')
+        title = movieObj.title
+        image = movieObj.poster_path
 
+        }
 
 const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +32,8 @@ const handleSubmit = async (e) => {
 
 
     const payload = {
+        title,
+        image,
     body:review
     }
     dispatch(createReviewThunk(payload, movieId)).then((data =>  history.push(`/movie/${movieId}`)));

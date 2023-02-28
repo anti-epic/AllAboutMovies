@@ -65,7 +65,7 @@ export const getReviews = (payload, id) => async dispatch => {
 
 
 export const createReviewThunk = (payload, id) => async dispatch => {
-    const response = await csrfFetch(`/api/movies/${id}/reviews`, {
+    const response = await csrfFetch(`/api/movies/${id}/${payload.title}/${payload.image}/reviews`, {
         method: 'POST',
         headers: {"Content-Type" : "application/json"},
         body: JSON.stringify(payload)
