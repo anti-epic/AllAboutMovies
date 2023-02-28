@@ -47,16 +47,22 @@ router.post('/:movieId', async (req ,res, next) => {
       return res.json({"message": "movie can not be found", "statusCode": res.statusCode})
   }
   const userWatchlist = await Watchlist.findAll({where: {userId}})
-  userWatchlist.forEach(movie => {
-      if(movie.movieId === Number(movieId)){
-          res.statusCode = 403;
-          return res.json({"message": "User already has this movie added to their watchlist", "statusCode": res.statusCode})
-      }
-  })
+  for(let i = 0;i < userWatchlist.length; i++){
+    if(userWatchlist[i].movieId === Number(movieId)){
+        res.statusCode = 403;
+        return res.json({"message": "User already has this movie added to their watchlist", "statusCode": res.statusCode})
+    }
+  }
+//   userWatchlist.forEach(movie => {
+//       if(movie.movieId === Number(movieId)){
+//           res.statusCode = 403;
+//           return res.json({"message": "User already has this movie added to their watchlist", "statusCode": res.statusCode})
+//       }
+//   })
   let movieIdNumber = Number(movieId)
   const newWatchlist = await Watchlist.create({userId,movieId: movieIdNumber})
-  res.statusCode = 201;
-  return res.json(newWatchlist)
+//   res.statusCode = 201;
+//   return res.json({newWatchlist})
   });
 
 
@@ -74,14 +80,17 @@ router.delete('/:id', async (req, res, next) => {
         return res.json({"message": "Movie in your watchlist couldn't be found", "statusCode": res.statusCode})
     }
 
-    if (deleteWatchlist[0].dataValues.userId === req.user.id) {
+    else if(deleteWatchlist[0].dataValues.userId != req.user.id){
+
+
+        res.statusCode = 403;
+        return res.json({error: "you do not have access to editing a watchlist you are not the owner of", statusCode: res.statusCode})
+    }
+
+    else if (deleteWatchlist[0].dataValues.userId === req.user.id) {
         await deleteWatchlist[0].destroy();
         return res.json({message: "Successfully deleted", statusCode: res.statusCode})
     }
-
-
-    res.statusCode = 403;
-    return res.json({error: "you do not have access to editing a watchlist you are not the owner of", statusCode: res.statusCode})
 })
 
 
