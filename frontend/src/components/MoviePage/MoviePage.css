@@ -166,20 +166,21 @@
 }
 
 
-.watchlistSingleMovieContainer{
-        border: 1px solid red;
+.watchlistSingleMovieContainerDelete{
+
         display: grid;
         position: relative;
         width:12em;
         grid-template-rows: .5fr;
-    margin-left:25em;
+    margin-left:20em;
 
     }
+    .watchlistSingleMovieContainerAdd{
 
-.watchlistButton{
-    cursor: pointer;
-
-    display: grid;
-border: 1px solid black;
+        display: grid;
+        position: relative;
+        width:12em;
+        grid-template-rows: .5fr;
+    margin-left:20em;
 
     }
