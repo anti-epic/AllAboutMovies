@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import { getTrendingMoviesByDay, getTrendingMoviesByWeek } from '../../store/trending';
 import './Trending.css'
+import { clearMovie } from '../../store/movie';
 
 
 export default function Trending(){
@@ -26,11 +27,13 @@ export default function Trending(){
     }
 
 
-    
+
 
     useEffect(() => {
         dispatch(getTrendingMoviesByDay()).then(() => {
-		dispatch(getTrendingMoviesByWeek())
+		dispatch(getTrendingMoviesByWeek()).then(() => {
+            dispatch(clearMovie())
+        })
 		}).then(() => {
             setIsLoaded(true);
         })

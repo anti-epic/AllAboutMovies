@@ -8,6 +8,10 @@
     border-bottom: 0.3em solid #081220;
     z-index: -2;
 }
+
+
+
+
 .singleMovieDescription{
     position:relative;
     margin-top: 2em;
@@ -25,9 +29,15 @@
 .singleMovieImage {
     margin-top: 2.5em;
     margin-bottom: 2.5em;
-    margin-left: 15em;
+    display: grid;
+    justify-content: center;
     position:relative;
 
+}
+
+.imageContainer{
+    display: grid;
+    justify-content: center;
 }
 
 .singleMovieTitle {
@@ -154,3 +164,22 @@
     display: grid;
     justify-content: center;
 }
+
+
+.watchlistSingleMovieContainer{
+        border: 1px solid red;
+        display: grid;
+        position: relative;
+        width:12em;
+        grid-template-rows: .5fr;
+    margin-left:25em;
+
+    }
+
+.watchlistButton{
+    cursor: pointer;
+
+    display: grid;
+border: 1px solid black;
+
+    }

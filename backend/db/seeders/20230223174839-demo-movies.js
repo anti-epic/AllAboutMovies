@@ -13,14 +13,20 @@ module.exports = {
     options.tableName = 'Movies';
     return queryInterface.bulkInsert(options, [
       {
-        "id": 315162
+        "id": 436270,
+        title: 'Black Adam',
+        image: 'https://image.tmdb.org/t/p/w500/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg'
 
       },
       {
-        "id": 436270
+        "id": 19995,
+        title: 'Avatar',
+        image: 'https://image.tmdb.org/t/p/w500/jRXYjXNq0Cs2TcJjLkki24MLp7u.jpg'
       },
       {
-        "id": 76600
+        "id": 536554,
+        title: 'M3GAN',
+        image: 'https://image.tmdb.org/t/p/w500/d9nBoowhjiiYc4FBNtQkPY7c11H.jpg'
       }
 
     ], {});

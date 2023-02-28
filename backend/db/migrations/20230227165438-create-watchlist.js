@@ -8,19 +8,22 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Movies', {
+    await queryInterface.createTable('Watchlists', {
       id: {
         allowNull: false,
+        autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      movieId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        type: Sequelize.STRING
+        references: {model: 'Movies'}
       },
-      image: {
+      userId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        type: Sequelize.STRING
+        references: {model: 'Users'}
       },
       createdAt: {
         allowNull: false,
@@ -32,10 +35,9 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-    },options);
+    });
   },
- down: async (queryInterface, Sequelize) => {
-  options.tableName='Movies'
-    return queryInterface.dropTable(options);
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('Watchlists');
   }
 };

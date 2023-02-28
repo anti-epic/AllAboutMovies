@@ -37,7 +37,6 @@ const deleteReview = (review) => {
 }
 
 export const editReviewThunk = (payload, id) => async dispatch => {
-    console.log('in edit thunk')
     const response = await csrfFetch(`/api/reviews/${id}`, {
         method: 'PUT',
         headers: {"Content-Type" : "application/json"},
@@ -54,8 +53,8 @@ export const editReviewThunk = (payload, id) => async dispatch => {
 
 
 
-export const getReviews = (id) => async dispatch => {
-    const response = await csrfFetch(`/api/movies/${id}/reviews`)
+export const getReviews = (payload, id) => async dispatch => {
+    const response = await csrfFetch(`/api/movies/${id}/${payload.title}/${payload.image}/reviews`)
     if (response.ok) {
         const reviews = await response.json();
         dispatch(loadReviews(reviews));
@@ -66,14 +65,12 @@ export const getReviews = (id) => async dispatch => {
 
 
 export const createReviewThunk = (payload, id) => async dispatch => {
-    console.log(payload, id, ' in create review thunk')
     const response = await csrfFetch(`/api/movies/${id}/reviews`, {
         method: 'POST',
         headers: {"Content-Type" : "application/json"},
         body: JSON.stringify(payload)
     })
     if(response.ok){
-        console.log('create response ok')
         const data = await response.json();
         dispatch(addReview(data))
     }
@@ -81,7 +78,6 @@ export const createReviewThunk = (payload, id) => async dispatch => {
 }
 
 export const deleteReviewThunk = (id) => async dispatch => {
-    console.log(id, ' in delete review')
     const response = await csrfFetch(`/api/reviews/${id}`, {
         method: 'DELETE',
     })
@@ -103,7 +99,6 @@ const reviewReducer = (state = initialState, action) => {
     switch(action.type){
         case LOAD_REVIEWS:
             const newState={}
-            console.log(action, 'in action review reducer')
             if(action.reviews.reviews){
                 action.reviews.reviews.forEach(review => {
                     newState[review.id] = review
@@ -112,7 +107,6 @@ const reviewReducer = (state = initialState, action) => {
         return newState
         case ADD_REVIEW:
             const addReviewState = {...state};
-            console.log('in create reducer', action)
             addReviewState[action.review.id] = action.review;
             return addReviewState
         case EDIT_REVIEW:

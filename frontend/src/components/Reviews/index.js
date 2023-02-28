@@ -13,11 +13,24 @@ export default function Reviews() {
     const dispatch = useDispatch()
     const {movieId} = useParams();
     let reviews = []
+    let title;
+    let image;
     let sessionUser
      sessionUser = useSelector(state => state.session.user);
     const reviewsObj = useSelector(state => {
         return state.review
     })
+
+    let movieObj = useSelector(state => {
+        return state.movie
+    })
+    if(movieObj){
+        console.log(movieObj, 'p')
+        title = movieObj.title
+        image = movieObj.poster_path
+
+        }
+
     if(!sessionUser){
         sessionUser = Infinity
     }
@@ -30,8 +43,10 @@ export default function Reviews() {
     console.log(sessionUser.id, 'session use here', sessionUser)
 
     useEffect(() => {
-    dispatch(getReviews(movieId))
-    },[dispatch, reviews.length])
+        const payload = {title, image}
+
+    dispatch(getReviews(payload,movieId))
+    },[dispatch, reviews.length, title])
 
     if (!reviewsObj){
         return null
