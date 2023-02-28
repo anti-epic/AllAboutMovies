@@ -11,20 +11,56 @@ export default function AddMovieToWatchlist ({movieId}) {
     const [message, setMessage] = React.useState("-");
     const timeoutIdRef = React.useRef();
     const [onWatchlist, setOnWatchlist] = useState(false);
+    let title;
+    let image;
+    let watchlist = []
+    let movieObj = useSelector(state => {
+        return state.movie
+    })
+    if(movieObj){
+        console.log(movieObj, 'p')
+        title = movieObj.title
+        image = movieObj.poster_path
+
+        }
+
+        let usersWatchlistObj = useSelector(state => {
+            return state.watchlist
+        })
+
+
+
+//         let usersWatchlistObj = useSelector(state => {
+//             return state.watchlist
+//         })
+
+// if(usersWatchlistObj){
+//     watchlist = Object.values(usersWatchlistObj)
+//     for (let i = 0; i < watchlist.length; i++) {
+//         if(watchlist[i].id === Number(movieId)){
+//             setOnWatchlist(1)
+//             break;
+//         }
+//     }
+// }
+
 
 
     useEffect(() => {
 
+        if(usersWatchlistObj[movieId]){
+            setOnWatchlist(true)
+        }
 
 
-
-    },[dispatch, onWatchlist])
+    },[dispatch, onWatchlist, movieId])
 
 
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(addWatchlistThunk(movieId))
+        const payload = {title, image}
+        dispatch(addWatchlistThunk(payload,movieId))
         setMessage("Movie added to your personal watchlist");
         clearTimeout(timeoutIdRef.current);
         timeoutIdRef.current = setTimeout(() => {

@@ -75,20 +75,6 @@ if(reviewObj) {
 }
 
 
-//                 setOnWatchlist(1)
-//     // watchlist.forEach((movie) => {
-//     //             if(movie.id === Number(movieId)){
-//     //        return setOnWatchlist(1)
-//     //     }
-//     // })
-
-// //     for (let i = 0; i < watchlist.length; i++) {
-// //         if(watchlist[i].id === Number(movieId)){
-// //             setOnWatchlist(1)
-// //         }
-
-// // }
-// }
 
 
 

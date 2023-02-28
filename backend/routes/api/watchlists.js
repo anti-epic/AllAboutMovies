@@ -37,14 +37,23 @@ const {
 
 
 
-router.post('/:movieId', async (req ,res, next) => {
-  const {movieId} = req.params;
+router.post('/:movieId/:title/:image', async (req ,res, next) => {
+  const {movieId,title,image} = req.params;
+  console.log(movieId, title, image, 'here')
   const userId = req.user.id
   console.log(movieId, 'user id next', userId)
   const movie = await Movie.findByPk(movieId);
   if(!movie){
-      res.statusCode =404;
-      return res.json({"message": "movie can not be found", "statusCode": res.statusCode})
+    const movieData = {
+        title,
+        image: `https://image.tmdb.org/t/p/w500/${image}`
+    }
+    console.log(movieData, 'moviedata here')
+    const createMovieLink =  await Movie.create({id:movieId, title: movieData.title, image: movieData.image})
+    let movieIdNumber = Number(movieId)
+    const newWatchlist = await Watchlist.create({userId,movieId: movieIdNumber})
+    res.statusCode = 201;
+    return res.json({newWatchlist})
   }
   const userWatchlist = await Watchlist.findAll({where: {userId}})
   for(let i = 0;i < userWatchlist.length; i++){
