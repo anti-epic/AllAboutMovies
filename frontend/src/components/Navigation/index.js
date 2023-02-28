@@ -27,11 +27,12 @@ function Navigation({ isLoaded }){
 
 
   if(sessionUser) {
-    sessionLinks = (
+    sessionLinks = (<div className='navSessionContainer'>
+        <NavLink className='NavbarWatchlist' to={`/watchlist`}>WatchList</NavLink>
       <div className='navUserInfo'>
         <ProfileButton user={sessionUser} />
-        <NavLink to={`/watchlist`}>WatchList</NavLink>
       </div>
+    </div>
     );
   } else {
     sessionLinks = (

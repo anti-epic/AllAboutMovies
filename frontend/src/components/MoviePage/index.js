@@ -10,7 +10,8 @@ import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import UpdateReview from '../UpdateReview';
 import { addWatchlistThunk, getWatchlist, deleteWatchlistThunk } from '../../store/watchlist';
-
+import AddMovieToWatchlist from '../AddMovieToWatchlist/Index';
+import RemoveMovieFromWatchlist from '../RemoveMovieFromWatchlist';
 
 
 const MoviePage = () => {
@@ -21,7 +22,7 @@ let watchlist = [];
 let image;
 let title;
 const [isLoaded, setIsLoaded] = useState(false);
-// const [onWatchlist, setOnWatchlist] = useState(0);
+const [onWatchlist, setOnWatchlist] = useState(false);
 const {movieId} = useParams();
 let sessionUser = useSelector(state => state.session.user);
 let isLoggedIn = false
@@ -34,6 +35,15 @@ if(!sessionUser){
     sessionUser = Infinity;
 
 }
+
+
+
+
+
+
+
+
+
 
 
 const movieObj = useSelector(state => {
@@ -65,23 +75,20 @@ if(reviewObj) {
 }
 
 
-// if(usersWatchlistObj[movieId]){
-//     setOnWatchlist(1)
-// }
-// //                 setOnWatchlist(1)
-// //     // watchlist.forEach((movie) => {
-// //     //             if(movie.id === Number(movieId)){
-// //     //        return setOnWatchlist(1)
-// //     //     }
-// //     // })
+//                 setOnWatchlist(1)
+//     // watchlist.forEach((movie) => {
+//     //             if(movie.id === Number(movieId)){
+//     //        return setOnWatchlist(1)
+//     //     }
+//     // })
 
-// // //     for (let i = 0; i < watchlist.length; i++) {
-// // //         if(watchlist[i].id === Number(movieId)){
-// // //             setOnWatchlist(1)
-// // //         }
+// //     for (let i = 0; i < watchlist.length; i++) {
+// //         if(watchlist[i].id === Number(movieId)){
+// //             setOnWatchlist(1)
+// //         }
 
-// // // }
 // // }
+// }
 
 
 
@@ -105,25 +112,14 @@ useEffect(() => {
 dispatch(getMovie(payload, movieId)).then((data) => {
     dispatch(getWatchlist())
 }).then(() => {
+    if(usersWatchlistObj[movieId]){
+        setOnWatchlist(true)
+    }
     setIsLoaded(true)
 })
-},[dispatch, movieId, reviews.length, sessionUser,watchlist.length])
+},[dispatch, movieId, reviews.length, sessionUser,watchlist.length, onWatchlist])
 
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    dispatch(addWatchlistThunk(movieId))
-    // .then((data =>  history.push(`/movie/${movieId}`)));
-
-}
-
-
-const handleunSubmit = async (e) => {
-    e.preventDefault();
-    dispatch(deleteWatchlistThunk(movieId))
-    // .then((data =>  history.push(`/movie/${movieId}`)));
-
-}
 
    return  isLoaded  ? (
         <div className='singleMovieContainer'>
@@ -150,17 +146,9 @@ const handleunSubmit = async (e) => {
 
 
 </div>
-<form className='watchlistSingleMovieContainer ' onSubmit={handleSubmit}>
-      <input className='watchlistButton' type='submit' value='add to watchlist'></input>
-      </form>
-      <form className='watchlistSingleMovieContainer ' onSubmit={handleunSubmit}>
-      <input className='watchlistButton' type='submit' value='remove from watchlist'></input>
-      </form>
-{/* {(onWatchlist === 0) ? (
-      <form className='watchlistSingleMovieContainer ' onSubmit={handleSubmit}>
-      <input className='watchlistButton' type='submit' value='remove from watchlist'></input>
-      </form>
-) : (  <div></div>)} */}
+
+<AddMovieToWatchlist movieId={movieId} />
+
 
 <div className='rContainer'>
 < div className = 'leaveReviewButton' > {
@@ -179,6 +167,7 @@ const handleunSubmit = async (e) => {
     )
 }
         </div>
+
             <Reviews/></div>
 < div > </div>
 
