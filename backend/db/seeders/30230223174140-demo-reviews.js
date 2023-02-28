@@ -13,17 +13,17 @@ module.exports = {
     options.tableName = 'Reviews';
     return queryInterface.bulkInsert(options, [
       {
-        "movieId": 315162,
+        "movieId": 436270,
         "userId": 1,
-        "body": "1good movie--- from user 1(boots movie)"
+        "body": "1good movie--- from user 1(adam movie)"
       },
       {
-        "movieId": 76600,
+        "movieId": 19995,
         "userId": 2,
         "body": "2movie--- from user 2(avatar movie)"
       },
       {
-        "movieId": 76600,
+        "movieId": 19995,
         "userId": 1,
         "body": "3good--- from user 1 (avatar movie)"
       }

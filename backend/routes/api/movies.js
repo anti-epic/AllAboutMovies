@@ -8,13 +8,17 @@ const {
 
 
 
-router.get('/:movieId/reviews', async (req ,res, next) => {
-const {movieId} = req.params;
-console.log('in backend review', movieId)
+router.get('/:movieId/:title/:image/reviews', async (req ,res, next) => {
+let {movieId, title, image} = req.params;
 let movieChecker = await Movie.findByPk(movieId);
 if(!movieChecker){
-    console.log('no movie found', movieId)
-    const createMovieLink =  await Movie.create({id:movieId})
+
+    const movieData = {
+        title,
+        image: `https://image.tmdb.org/t/p/w500/${image}`
+    }
+    console.log(movieData, 'moviedata here')
+    const createMovieLink =  await Movie.create({id:movieId, title: movieData.title, image: movieData.image})
     return res.json({createMovieLink})
 }
 
@@ -42,7 +46,6 @@ router.post('/:movieId/reviews', async (req ,res, next) => {
 const {movieId} = req.params;
 const {body} = req.body
 const userId = req.user.id
-console.log(body, 'body', movieId, 'user id next', userId)
 const movie = await Movie.findByPk(movieId);
 if(!movie){
     res.statusCode =404;

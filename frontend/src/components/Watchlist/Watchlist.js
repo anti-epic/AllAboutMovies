@@ -3,6 +3,7 @@ import './Watchlist.css';
 import { getWatchlist } from '../../store/watchlist';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMovie } from '../../store/movie';
+import {Link} from 'react-router-dom';
 
 export default function Watchlist() {
 const dispatch = useDispatch();
@@ -30,11 +31,16 @@ if(!watchlistObj){
 
 
 
-return isLoaded ? (<div>hi
+return isLoaded ? (<div>
+        <h1 className='watchlistTitle'> WATCHLIST</h1>
 
-    <div>watchlist
+    <div className='watchlistContainer'>
         {watchlist.map((movie) => (
-                <div>{movie.movieId}</div>
+                <Link className='watchlistCard' to={`movie/${movie.id}`}> <img  className="watchlistSingleMovieImage"src={`${movie.image}`}></img>
+                <div className='testing'>
+                    {movie.title}
+                    </div>
+                    </Link>
         ))}
     </div>
 </div>) : (<div> loading watchlist</div>)

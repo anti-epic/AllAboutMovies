@@ -13,15 +13,15 @@ module.exports = {
     options.tableName = 'Watchlists';
     return queryInterface.bulkInsert(options, [
       {
-        "movieId": 315162,
+        "movieId": 436270,
         "userId": 1
       },
       {
-        "movieId": 76600,
+        "movieId": 436270,
         "userId": 2
       },
       {
-        "movieId": 76600,
+        "movieId": 19995,
         "userId": 1
       }
 

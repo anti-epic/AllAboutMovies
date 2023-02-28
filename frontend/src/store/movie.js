@@ -1,9 +1,10 @@
 import {csrfFetch} from './csrf'
 
 const LOAD_MOVIE = '/movie/load'
+const CLEAR_MOVIE ='/movie/clear'
 
-
-export const getMovie = (movieId) => async dispatch => {
+export const getMovie = (payload, movieId) => async dispatch => {
+    console.log(payload, 'payload')
     const response = await csrfFetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=61e69f523be7c038d620f35a02dd450e&language=en-US`)
     if(response.ok){
         const movie = await response.json()
@@ -18,7 +19,11 @@ const getSingleMovie = (movie) =>{
     }
 }
 
-
+export const clearMovie = () => {
+    return {
+        type: CLEAR_MOVIE,
+    }
+}
 
 
 const initialState = {
@@ -31,7 +36,11 @@ const movieReducer = (state = initialState, action) => {
             let loadMovieState = { ...action.movie
             }
             return loadMovieState
+        case CLEAR_MOVIE:
+            const clearedState = {}
+            return clearedState
         default:
+
             return state
     }
 }

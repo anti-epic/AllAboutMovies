@@ -16,7 +16,16 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  Movie.init({}, {
+  Movie.init({
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+  }, {
     sequelize,
     modelName: 'Movie',
   });

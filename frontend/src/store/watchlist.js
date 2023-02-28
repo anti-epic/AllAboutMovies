@@ -1,16 +1,9 @@
-import { csrfFetch } from "./csrf";
-import { getMovie } from "./movie";
+import {csrfFetch} from "./csrf";
+
 
 const LOAD_WATCHLIST = '/watchlist/load';
-const GET_WATCHLIST_SUCCESS = 'GET_WATCHLIST_SUCCESS';
-
-export const getWatchlistSuccess = (movies) => ({
-    type: GET_WATCHLIST_SUCCESS,
-    payload: movies,
-  });
-
-
-
+const ADD_TO_WATCHLIST = '/watchlist/add';
+const DELETE_WATCHLIST = '/watchlist/delete'
 
 export const getWatchlist = () => async dispatch => {
     console.log('in get all watchlist thunk')
@@ -28,6 +21,45 @@ export const getWatchlist = () => async dispatch => {
 
 }
 
+
+export const deleteWatchlistThunk = (id) => async dispatch => {
+    console.log('in delete thunk')
+    const response = await csrfFetch(`/api/watchlist/${id}`, {
+        method: 'DELETE',
+    })
+    if(response.ok){
+        console.log('delete thunk response ok')
+        const data = await response.json();
+        dispatch(deleteWatchlist(data))
+    }
+
+}
+
+
+
+
+export const addWatchlistThunk = (id) => async dispatch => {
+    console.log( id, ' in create  watchlist thunk')
+    const response = await csrfFetch(`/api/watchlist/${id}`, {
+        method: 'POST',
+        headers: {"Content-Type" : "application/json"}
+    })
+    if(response.ok){
+        console.log('create response ok')
+        const data = await response.json();
+        dispatch(addWatchlist(data))
+    }
+
+}
+
+const deleteWatchlist = (review) => {
+    return{
+        type: DELETE_WATCHLIST,
+        review
+    }
+}
+
+
 const loadWatchlist = (watchlist) => {
     return {
         type: LOAD_WATCHLIST,
@@ -35,6 +67,12 @@ const loadWatchlist = (watchlist) => {
     }
 }
 
+const addWatchlist = (watchlist) => {
+    return {
+        type: ADD_TO_WATCHLIST,
+        watchlist
+    }
+}
 
 
 
@@ -53,14 +91,17 @@ const watchlistReducer = (state = initialState, action) => {
                     newState[movie.id] = movie
                 })
             }
-
             return newState
-        case GET_WATCHLIST_SUCCESS:
-                return {
-                  ...state,
-                  loading: false,
-                  movies: action.payload,
-                };
+        case ADD_TO_WATCHLIST:
+            const addWatchlistState ={...state}
+            console.log(action , 'in add watchlist')
+            addWatchlistState[action.watchlist.id] = action.watchlist
+            return addWatchlistState
+        case DELETE_WATCHLIST:
+            const deleteWatchlistState = {...state}
+            console.log(action , 'in delete watchlist')
+            delete deleteWatchlistState.watchlist[action.movieId]
+                return deleteWatchlistState
         default:
             return state
     }

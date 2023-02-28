@@ -11,41 +11,24 @@ const {
 
 
 
-
-// router.get('/:movieId/reviews', async (req ,res, next) => {
-//     const {movieId} = req.params;
-//     let movieChecker = await Movie.findByPk(movieId);
-//     if(!movieChecker){
-//         const createMovieLink =  await Movie.create({id:movieId})
-//         return res.json({createMovieLink})
-//     }
-//     let reviews = await Review.findAll({
-//         where: {
-//            movieId
-//         }
-//     })
-//     let user
-//     for(let i = 0; i < reviews.length; i++){
-//         let currReview = reviews[i].dataValues;
-//         let currReviewUser = currReview.userId
-
-//         user = await User.findByPk(currReviewUser, {
-//             attributes: ['id', 'username']
-//         })
-//         currReview.User = user.dataValues
-//     }
-//     return res.json({reviews})
-//     });
-
-
     router.get('/', async (req, res, next) => {
-            console.log(req.user.id)
             if(!req.user){
                 return res.json({"message": "you must be logged in to see your watchlist"})
             }
-            let watchlist = await Watchlist.findAll({
-                where: {userId: req.user.id}
-            })
+
+
+            let watchlist = []
+            const userMovies = await Watchlist.findAll({
+                where: { userId: req.user.id },
+              });
+
+
+              for(let i = 0; i < userMovies.length; i++){
+                let tempMovie = userMovies[i];
+                console.log(tempMovie.dataValues.movieId)
+                watchlist[i] = await Movie.findByPk(tempMovie.dataValues.movieId)
+              }
+
             return res.json({watchlist})
     });
 
@@ -53,6 +36,53 @@ const {
 
 
 
+
+router.post('/:movieId', async (req ,res, next) => {
+  const {movieId} = req.params;
+  const userId = req.user.id
+  console.log(movieId, 'user id next', userId)
+  const movie = await Movie.findByPk(movieId);
+  if(!movie){
+      res.statusCode =404;
+      return res.json({"message": "movie can not be found", "statusCode": res.statusCode})
+  }
+  const userWatchlist = await Watchlist.findAll({where: {userId}})
+  userWatchlist.forEach(movie => {
+      if(movie.movieId === Number(movieId)){
+          res.statusCode = 403;
+          return res.json({"message": "User already has this movie added to their watchlist", "statusCode": res.statusCode})
+      }
+  })
+  let movieIdNumber = Number(movieId)
+  const newWatchlist = await Watchlist.create({userId,movieId: movieIdNumber})
+  res.statusCode = 201;
+  return res.json(newWatchlist)
+  });
+
+
+
+
+router.delete('/:id', async (req, res, next) => {
+    const {id} = req.params;
+    deleteWatchlist = await Watchlist.findAll({  where: {
+        userId: req.user.id,
+        movieId: id
+}})
+
+    if (!deleteWatchlist) {
+        res.statusCode = 404;
+        return res.json({"message": "Movie in your watchlist couldn't be found", "statusCode": res.statusCode})
+    }
+
+    if (deleteWatchlist[0].dataValues.userId === req.user.id) {
+        await deleteWatchlist[0].destroy();
+        return res.json({message: "Successfully deleted", statusCode: res.statusCode})
+    }
+
+
+    res.statusCode = 403;
+    return res.json({error: "you do not have access to editing a watchlist you are not the owner of", statusCode: res.statusCode})
+})
 
 
 

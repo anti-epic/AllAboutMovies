@@ -1,0 +1,28 @@
+.watchlistContainer{
+    display:  flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.watchlistTitle{
+    display: grid;
+    font: 26px;
+    text-align: center;
+    color: white;
+}
+
+
+.watchlistCard{
+display: grid;
+font-size: 22px;
+font-weight: bold;
+text-align: center;
+border: 4px solid black;
+margin:1em;
+color:white;
+text-decoration: none;
+}
+
+.watchlistSingleMovieImage {
+    width: 10em;
+    }
