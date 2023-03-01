@@ -38,7 +38,7 @@ return isLoaded ? (<div>
         {watchlist.map((movie) => (
 
                 <Link className='watchlistCard' to={`movie/${movie.id}`}> <img  className="watchlistSingleMovieImage"src={`${movie.image}`}></img>
-                <div className='testing'>
+                <div className='testing' >
                     {movie.title}
                     </div>
                     </Link>

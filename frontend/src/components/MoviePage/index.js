@@ -39,13 +39,6 @@ if(!sessionUser){
 
 
 
-
-
-
-
-
-
-
 const movieObj = useSelector(state => {
     return state.movie
 })

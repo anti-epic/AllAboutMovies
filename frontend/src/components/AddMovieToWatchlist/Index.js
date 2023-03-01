@@ -18,7 +18,6 @@ export default function AddMovieToWatchlist ({movieId}) {
         return state.movie
     })
     if(movieObj){
-        console.log(movieObj, 'p')
         title = movieObj.title
         image = movieObj.poster_path
 
@@ -46,12 +45,11 @@ export default function AddMovieToWatchlist ({movieId}) {
 
 
 
-    useEffect(() => {
+useEffect(() => {
 
-        if(usersWatchlistObj[movieId]){
-            setOnWatchlist(true)
-        }
-  
+    if(usersWatchlistObj[movieId]){
+        setOnWatchlist(true)
+    }
 
 
     },[dispatch, onWatchlist, movieId])
