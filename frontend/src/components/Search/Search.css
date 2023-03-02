@@ -1,0 +1,29 @@
+.searchInputs {
+
+    display: flex;
+  }
+
+
+
+  input:focus {
+    outline: none;
+  }
+
+
+
+.searchArea {
+  height: 3em;
+width: 20em;
+text-align: center;
+border: 0px;
+}
+
+
+.searchSubmit{
+  height: 3.3em;
+  width: 5em;
+  cursor: pointer;
+  background-color:#102440;
+  color: white;
+  border: 0px;
+}

@@ -1,9 +1,6 @@
-
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-
 import { addWatchlistThunk, deleteWatchlistThunk} from '../../store/watchlist';
-import RemoveMovieFromWatchlist from '../RemoveMovieFromWatchlist';
 import './AddMovieToWatchlist.css'
 
 export default function AddMovieToWatchlist ({movieId}) {
@@ -18,7 +15,6 @@ export default function AddMovieToWatchlist ({movieId}) {
         return state.movie
     })
     if(movieObj){
-        console.log(movieObj, 'p')
         title = movieObj.title
         image = movieObj.poster_path
 
@@ -46,12 +42,11 @@ export default function AddMovieToWatchlist ({movieId}) {
 
 
 
-    useEffect(() => {
+useEffect(() => {
 
-        if(usersWatchlistObj[movieId]){
-            setOnWatchlist(true)
-        }
-  
+    if(usersWatchlistObj[movieId]){
+        setOnWatchlist(true)
+    }
 
 
     },[dispatch, onWatchlist, movieId])

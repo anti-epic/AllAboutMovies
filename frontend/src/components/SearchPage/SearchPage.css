@@ -1,0 +1,55 @@
+.searchCard{
+    background-color: #92aaca;
+ display: grid;
+
+    border-radius: 15px;
+   grid-auto-flow: column;
+    font-weight: bold;
+    margin:.5em;
+    width:60em;
+    height: 18em;;
+    color:white;
+    overflow: hidden;
+}
+.searchSingleMovieImage {
+    width: 12em;
+    margin-right:2em;
+
+    }
+
+    .searchDate{
+        display: grid;
+        font-weight: 100;
+        margin-top: .5em;
+        margin-right:1em;
+
+    }
+    .searchTitle{
+        font-size: 20px;
+        text-decoration: none;
+        overflow-wrap: break-word;
+        margin-top: .5em;
+    }
+    .searchContainer{
+        display:grid;
+        justify-content: center;
+    }
+
+
+
+    .searchTitleLink{
+            text-decoration: none;
+            color:#102440;
+        }
+
+
+        .searchDescription{
+            font-size: 16px;
+            margin-top: 2em;
+        }
+
+
+        .searchPageSearchContainer{
+            display: grid;
+            justify-content: center;
+        }

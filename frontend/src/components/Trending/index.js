@@ -2,16 +2,16 @@ import React, {useState} from 'react';
 import {NavLink, useHistory} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
-import { getTrendingMoviesByDay, getTrendingMoviesByWeek } from '../../store/trending';
+import {getTrendingMoviesByDay, getTrendingMoviesByWeek} from '../../store/trending';
 import './Trending.css'
-import { clearMovie } from '../../store/movie';
+import {clearMovie} from '../../store/movie';
 
 
-export default function Trending(){
+export default function Trending() {
     let trendingTodayMovies = []
     let trendingWeekMovies = []
     const dispatch = useDispatch()
-	const [isLoaded, setIsLoaded] = useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
     const [trending, setTrending] = useState(1);
     const trendingTodayMoviesObj = useSelector(state => {
         return state.trending.day
@@ -19,80 +19,152 @@ export default function Trending(){
     const trendingWeekMoviesObj = useSelector(state => {
         return state.trending.week
     })
-    if(trendingTodayMoviesObj){
+    if (trendingTodayMoviesObj) {
         trendingTodayMovies = Object.values(trendingTodayMoviesObj.movies)
     }
-    if(trendingWeekMoviesObj){
+    if (trendingWeekMoviesObj) {
         trendingWeekMovies = Object.values(trendingWeekMoviesObj.movies)
     }
 
 
-
-
     useEffect(() => {
         dispatch(getTrendingMoviesByDay()).then(() => {
-		dispatch(getTrendingMoviesByWeek()).then(() => {
-            dispatch(clearMovie())
-        })
-		}).then(() => {
+            dispatch(getTrendingMoviesByWeek()).then(() => {
+                dispatch(clearMovie())
+            })
+        }).then(() => {
             setIsLoaded(true);
         })
 
-    },[dispatch, trendingTodayMovies.length, trendingWeekMovies.length])
+    }, [dispatch, trendingTodayMovies.length, trendingWeekMovies.length])
 
-    if(!trendingTodayMovies || !trendingWeekMovies) {
-        return null}
-    return isLoaded ? (<>
-       <div className='trendingButtonsContainer'> <div className='trendingButtonHeader'>Trending</div><button className='buttonOptions' autoFocus
+    if (! trendingTodayMovies || ! trendingWeekMovies) {
+        return null
+    }
+    return isLoaded ? (
+        <>
+            <div className='trendingButtonsContainer'>
+                <div className='trendingButtonHeader'>Trending</div>
+                <button className='buttonOptions' autoFocus
 
-       onClick={() => setTrending(1)}>Today</button><button  className='buttonOptions' onClick={() => setTrending(2)}>This Week</button></div>
-        <div className='trendingMovies' style={{backgroundImage: `url("./movie-background.png")`,  backgroundSize: 'contain'}}>
-
-            {
-                trending == 1 && (
-                            <>
-                    {trendingTodayMovies.map((movie) => (
-                        movie  ? (<div className='trendingSingleMovie'>
-                        <NavLink key={movie.id} to={`/movie/${movie.id}`}>
-                        <img  className="trendingSingleMovieImage"src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`}></img>
-                        </NavLink>
-                        <div className='trendingSingleMovieRating'>{Math.round(movie.vote_average * 10)} <i className="fa-solid fa-percent fa-2xs"></i></div>
-                        <div className='trendingSingleMovieTitleContainer'>
-                        <NavLink  className='trendingSingleMovieTitle'style={{ textDecoration: 'none' }} to={`/movies/${movie.id}`}>
-                        {movie.title ?(movie.title) : (movie.name)}
-                        </NavLink>
-                        </div>
-                        </div>
-
-                        ): (<div> loading trending movies by day</div>)
-                        ))}</>
-                        )
+                    onClick={
+                        () => setTrending(1)
+                }>Today</button>
+                <button className='buttonOptions'
+                    onClick={
+                        () => setTrending(2)
+                }>This Week</button>
+            </div>
+            <div className='trendingMovies'
+                style={
+                    {
+                        backgroundImage: `url("./movie-background.png")`,
+                        backgroundSize: 'contain'
                     }
-                 {
+            }>
 
-                  trending === 2 && (<>
+                {
+                trending == 1 && (
+                    <> {
+                        trendingTodayMovies.map((movie) => (movie ? (
+                            <div className='trendingSingleMovie'>
+                                <NavLink key={
+                                        movie.id
+                                    }
+                                    to={
+                                        `/movie/${
+                                            movie.id
+                                        }`
+                                }>
+                                    <img className="trendingSingleMovieImage"
+                                        src={
+                                            `https://image.tmdb.org/t/p/w154/${
+                                                movie.poster_path
+                                            }`
+                                    }></img>
+                                </NavLink>
+                                <div className='trendingSingleMovieRating'>
+                                    {
+                                    Math.round(movie.vote_average * 10)
+                                }
+                                    <i className="fa-solid fa-percent fa-2xs"></i>
+                                </div>
+                                <div className='trendingSingleMovieTitleContainer'>
+                                    <NavLink className='trendingSingleMovieTitle'
+                                        style={
+                                            {textDecoration: 'none'}
+                                        }
+                                        to={
+                                            `/movies/${
+                                                movie.id
+                                            }`
+                                    }>
+                                        {
+                                        movie.title ? (movie.title) : (movie.name)
+                                    } </NavLink>
+                                </div>
+                            </div>
 
-    {trendingWeekMovies.map((movie) => (
-                        movie  ? (<div className='trendingSingleMovie'>
-                        <NavLink key={movie.id} to={`/movie/${movie.id}`}>
-                        <img  className="trendingSingleMovieImage"src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`}></img>
-                        </NavLink>
-                        <div className='trendingSingleMovieRating'>{Math.round(movie.vote_average * 10)} <i className="fa-solid fa-percent fa-2xs"></i></div>
-                        <div className='trendingSingleMovieTitleContainer'>
-                        <NavLink  className='trendingSingleMovieTitle'style={{ textDecoration: 'none' }} to={`/movies/${movie.id}`}>
-                        {movie.title ?(movie.title) : (movie.name)}
-                        </NavLink>
-                        </div>
-                        </div>
+                        ) : (
+                            <div>
+                                loading trending movies by day</div>
+                        )))
+                    }</>
+                )
+            }
+                {
 
-                        ): (<div> loading trending movies by day</div>)
-                        ))}
-                  </>
-                      )
-                 }
+                trending === 2 && (
+                    <> {
+                        trendingWeekMovies.map((movie) => (movie ? (
+                            <div className='trendingSingleMovie'>
+                                <NavLink key={
+                                        movie.id
+                                    }
+                                    to={
+                                        `/movie/${
+                                            movie.id
+                                        }`
+                                }>
+                                    <img className="trendingSingleMovieImage"
+                                        src={
+                                            `https://image.tmdb.org/t/p/w154/${
+                                                movie.poster_path
+                                            }`
+                                    }></img>
+                                </NavLink>
+                                <div className='trendingSingleMovieRating'>
+                                    {
+                                    Math.round(movie.vote_average * 10)
+                                }
+                                    <i className="fa-solid fa-percent fa-2xs"></i>
+                                </div>
+                                <div className='trendingSingleMovieTitleContainer'>
+                                    <NavLink className='trendingSingleMovieTitle'
+                                        style={
+                                            {textDecoration: 'none'}
+                                        }
+                                        to={
+                                            `/movies/${
+                                                movie.id
+                                            }`
+                                    }>
+                                        {
+                                        movie.title ? (movie.title) : (movie.name)
+                                    } </NavLink>
+                                </div>
+                            </div>
 
-
-        </div>
+                        ) : (
+                            <div>
+                                loading trending movies by day</div>
+                        )))
+                    } </>
+                )
+            } </div>
         </>
-    ) : ( <div> loading movies</div>)
+    ) : (
+        <div>
+            loading movies</div>
+    )
 }

@@ -19,7 +19,6 @@ const CreateReview = () => {
     })
     const movieId = movieObj.id
     if (movieObj) {
-        console.log(movieObj, 'p')
         title = movieObj.title
         image = movieObj.poster_path
 
