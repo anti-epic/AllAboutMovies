@@ -16,7 +16,6 @@ if(!movieChecker){
         title,
         image: `https://image.tmdb.org/t/p/w500/${image}`
     }
-    console.log(movieData, 'moviedata here')
     const createMovieLink =  await Movie.create({id:movieId, title: movieData.title, image: movieData.image})
     return res.json({createMovieLink})
 }
@@ -47,12 +46,10 @@ const {body} = req.body
 const userId = req.user.id
 const movie = await Movie.findByPk(movieId);
 if(!movie){
-    console.log('movie not found creating a new one',movieId, " ", title, " ", image)
     const movieData = {
         title,
         image: `https://image.tmdb.org/t/p/w500/${image}`
     }
-    console.log(movieData, 'moviedata here')
     const createMovieLink =  await Movie.create({id:movieId, title: movieData.title, image: movieData.image})
     let movieIdNumber = Number(movieId)
     const newReview = await Review.create({body,userId,movieId: movieIdNumber})

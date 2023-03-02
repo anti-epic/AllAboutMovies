@@ -4,7 +4,6 @@ const LOAD_TRENDING_MOVIES_DAY = '/movies/trending/day'
 const LOAD_TRENDING_MOVIES_WEEK = '/movies/trending/week'
 
 export const getTrendingMoviesByDay = () => async dispatch => {
-    // await console.log('trying to get movies in thunk')
     const response = await csrfFetch('https://api.themoviedb.org/3/trending/movie/day?api_key=61e69f523be7c038d620f35a02dd450e')
     if(response.ok){
         const movies = await response.json()

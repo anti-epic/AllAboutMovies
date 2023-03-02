@@ -25,7 +25,6 @@ const {
 
               for(let i = 0; i < userMovies.length; i++){
                 let tempMovie = userMovies[i];
-                console.log(tempMovie.dataValues.movieId)
                 watchlist[i] = await Movie.findByPk(tempMovie.dataValues.movieId)
               }
 

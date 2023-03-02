@@ -53,6 +53,7 @@ useEffect(() => {
                 <input className='searchArea' type="text"
                     value={searchText}
                     onChange={handleSearching}
+                    required
                     placeholder='enter a movie name...'></input>
                 <input className='searchSubmit' type='submit' value='search'></input>
                 <div className='searchIcon'></div>

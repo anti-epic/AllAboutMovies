@@ -39,7 +39,6 @@ router.put('/:reviewId', async (req, res ,next) => {
 router.delete('/:reviewId', async(req,res,next)=> {
     const {reviewId} = req.params;
     const currUser = req.user.id;
-    console.log(currUser)
     let review = await Review.findByPk(reviewId)
 
     if(!review){

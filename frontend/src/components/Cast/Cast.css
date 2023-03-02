@@ -1,0 +1,51 @@
+.castContainer {
+    display: grid;
+    margin-top:1em;
+    justify-content: center;
+    margin-bottom: 1em;
+    border-radius: 12px;
+    border:10px solid #102440;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.castComponentContainer{
+    display: grid;
+    margin-left:10em;
+width:50%;
+
+justify-content: center;
+}
+
+
+.singleCastCard{
+    display: grid;
+    margin:1em;
+    overflow: hidden;
+    width:15em;
+    border-radius: 25px;
+    background-color: #92aaca;
+}
+
+
+.castHeader{
+    display: grid;
+    justify-content: center;
+}
+
+
+.castName{
+    font-size: 20px;
+    font-weight: bold;
+    display: grid;
+    justify-content: center;
+}
+
+.caseMovieName{
+    display: grid;
+    justify-content: center;
+}
+
+.singleCastImage{
+    width: 100%;
+    display: grid;
+}

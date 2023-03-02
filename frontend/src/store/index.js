@@ -7,6 +7,7 @@ import review from './review'
 import watchlist from './watchlist'
 import search from './search'
 import discover from './discover'
+import cast from './cast'
 const rootReducer = combineReducers({
     session: sessionReducer,
     trending,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
     review,
     watchlist,
     search,
-    discover
+    discover,
+    cast
 });
 
 

@@ -16,7 +16,6 @@ export const getWatchlist = () => async dispatch => {
 
     }
     else {
-        console.log('watchlist response bad')
     }
 
 }

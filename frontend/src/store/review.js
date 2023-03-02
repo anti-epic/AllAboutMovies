@@ -33,7 +33,6 @@ export const editReviewThunk = (payload, id) => async dispatch => {
         body: JSON.stringify(payload)
     })
     if (response.ok) {
-        console.log('payload good end', response)
         const data = await response.json();
         dispatch(editReview(data))
     }
@@ -42,11 +41,7 @@ export const editReviewThunk = (payload, id) => async dispatch => {
 
 
 export const getReviews = (payload, id) => async dispatch => {
-    const response = await csrfFetch(`/api/movies/${id}/${
-        payload.title
-    }${
-        payload.image
-    }/reviews`)
+    const response = await csrfFetch(`/api/movies/${id}/${payload.title}${payload.image}/reviews`)
     if (response.ok) {
         const reviews = await response.json();
         dispatch(loadReviews(reviews));

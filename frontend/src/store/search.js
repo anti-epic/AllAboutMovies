@@ -6,9 +6,7 @@ const LOAD_SEARCH = '/search/LOAD';
 
 
 export const getSearch = (payload) => async dispatch => {
-    console.log(payload, 'search payload here')
     let parsed = payload.split(' ').join('+');
-    console.log(parsed, 'parsed')
     const response = await csrfFetch(`https://api.themoviedb.org/3/search/movie?api_key=61e69f523be7c038d620f35a02dd450e&query=${parsed}`)
     if (response.ok) {
         const movies = await response.json();

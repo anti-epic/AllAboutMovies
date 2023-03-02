@@ -25,7 +25,6 @@ export default function Reviews() {
         return state.movie
     })
     if(movieObj){
-        console.log(movieObj, 'p')
         title = movieObj.title
         image = movieObj.poster_path
 
@@ -40,7 +39,6 @@ export default function Reviews() {
         reviews = Object.values(reviewsObj)
     }
 
-    console.log(sessionUser.id, 'session use here', sessionUser)
 
     useEffect(() => {
         const payload = {title, image}

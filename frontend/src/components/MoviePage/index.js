@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 import './MoviePage.css'
 import { getMovie } from '../../store/movie';
+import { getCastThunk } from '../../store/cast';
 import Reviews from '../Reviews'
 import CreateReview from '../CreateReview';
 import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
@@ -11,6 +12,8 @@ import LoginFormModal from '../LoginFormModal';
 import UpdateReview from '../UpdateReview';
 import { getWatchlist} from '../../store/watchlist';
 import AddMovieToWatchlist from '../AddMovieToWatchlist/Index';
+import Cast from '../Cast/Index';
+
 
 
 
@@ -55,9 +58,11 @@ const reviewObj = useSelector(state => {
     return state.review
 })
 
-let usersWatchlistObj = useSelector(state => {
+const usersWatchlistObj = useSelector(state => {
     return state.watchlist
 })
+
+
 
 
 
@@ -124,10 +129,13 @@ dispatch(getWatchlist())})
 
             <div className='overlay'></div>
 
+        </div>
+<div className='castAndWatchlistContainer'>
+    <AddMovieToWatchlist movieId={movieId} />
+<Cast movieId={movieId} />
+    </div>
 
-</div>
 
-<AddMovieToWatchlist movieId={movieId} />
 
 
 <div className='rContainer'>
