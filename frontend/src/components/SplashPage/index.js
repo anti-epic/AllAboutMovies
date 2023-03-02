@@ -39,11 +39,11 @@ const SplashPage = () => {
                 {backgroundImage: `url("./movie-banner.jpg")`}
         }>
             <div className='splashWelcome'>
-                Welcome.
+                Welcome
+                </div>
                 <div className='searchContainer'>
                     <Search/>
 
-                </div>
             </div>
             <div className='splashMessage'>Millions of movies, TV shows and people to discover. Explore now
             </div>
