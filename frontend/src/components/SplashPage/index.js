@@ -4,6 +4,8 @@ import Trending from '../Trending';
 import {useDispatch, useSelector} from 'react-redux'
 import {getWatchlist} from '../../store/watchlist';
 import Search from '../Search';
+import Footer from '../Footer';
+import Discover from '../Discover';
 const SplashPage = () => {
     const dispatch = useDispatch();
     let watchlist = []
@@ -47,10 +49,12 @@ const SplashPage = () => {
             </div>
         </div>
         <div className='trending'>
-
             <Trending/>
         </div>
-
+        <div className='discover'>
+            <Discover />
+        </div>
+        <Footer />
     </div>) : (<div>
         loading movies</div>)
 

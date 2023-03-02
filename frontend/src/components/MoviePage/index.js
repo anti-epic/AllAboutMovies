@@ -9,9 +9,9 @@ import CreateReview from '../CreateReview';
 import OpenModalMenuItem from '../Navigation/OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import UpdateReview from '../UpdateReview';
-import { addWatchlistThunk, getWatchlist, deleteWatchlistThunk } from '../../store/watchlist';
+import { getWatchlist} from '../../store/watchlist';
 import AddMovieToWatchlist from '../AddMovieToWatchlist/Index';
-import RemoveMovieFromWatchlist from '../RemoveMovieFromWatchlist';
+
 
 
 const MoviePage = () => {

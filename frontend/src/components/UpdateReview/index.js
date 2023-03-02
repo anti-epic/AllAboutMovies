@@ -15,21 +15,21 @@ export default function UpdateReview() {
     const { closeModal } = useModal();
     const reviewObj = useSelector(state => state.review)
     const sessionUser = useSelector(state => state.session)
-    const [body, setBody] = useState('')
     const movieId = useSelector(state => state.movie.id)
-    let bodyText =''
+    // let bodyText =''
     if(reviewObj){
-        reviews = Object.values(reviewObj)
-      for(let i = 0; i < reviews.length; i++){
-        if(reviews[i].userId === sessionUser.user.id){
-            reviewId = reviews[i].id
-        bodyText = reviews[i].body
-        }
-
-      }
+      reviews = Object.values(reviewObj)
     }
+    for(let i = 0; i < reviews.length; i++){
+      if(reviews[i].userId === sessionUser.user.id){
+        reviewId = reviews[i].id
+        // bodyText = reviews[i].body
+      }
 
-    const handleSubmit = async (e) => {
+    }
+    const [body, setBody] = useState(reviewObj[reviewId].body)
+
+      const handleSubmit = async (e) => {
         e.preventDefault();
         const payload = {
 
@@ -40,7 +40,7 @@ export default function UpdateReview() {
 
 
 
-    return reviewObj ? (
+    return reviewObj[reviewId] ? (
         <div className='editContainer'>
      <div className='updateFormTitle'> Update Your Review</div>
             <form className='updateForm' onSubmit={handleSubmit}>
@@ -48,12 +48,12 @@ export default function UpdateReview() {
             <textarea
             className='reviewText'
             type="text"
-            placeholder={bodyText}
+            placeholder={reviewObj[reviewId].body}
             required
             value={body}
             onChange={(e) => setBody(e.target.value)} />
         <input className='submitUpdatedInfo' type='submit' value='Update Review'></input>
             </form>
         </div>
-    ): (<div></div>)
+    ): (<div>nothing</div>)
 }

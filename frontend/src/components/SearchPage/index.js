@@ -19,7 +19,9 @@ const SearchPage = () => {
 
 
     return isLoaded ? (<div className='searchContainer'>
+       <div className='searchPageSearchContainer'>
         <Search/>
+        </div>
   {searchData.map((movie) => movie.poster_path ? (
             <div  className='searchCard'>
                 <Link to={`movie/${movie.id}`}> <img  className="searchSingleMovieImage"src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`}></img>
@@ -29,11 +31,11 @@ const SearchPage = () => {
                 <Link className='searchTitleLink' to={`movie/${movie.id}`}>
                     {movie.title}
                     </Link>
+                    <div className='searchDescription'>{movie.overview}</div>
                     </div>
                     <div className='searchDate'>
                     Release-Date - {movie.release_date}
                     </div>
-                    <div className='searchDescription'>{movie.overview}</div>
                     </div>
                 ) : (<div></div>))}
     </div>) :

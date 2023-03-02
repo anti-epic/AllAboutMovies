@@ -1,9 +1,6 @@
-
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
-
 import { addWatchlistThunk, deleteWatchlistThunk} from '../../store/watchlist';
-import RemoveMovieFromWatchlist from '../RemoveMovieFromWatchlist';
 import './AddMovieToWatchlist.css'
 
 export default function AddMovieToWatchlist ({movieId}) {

@@ -6,13 +6,15 @@ import movie from './movie'
 import review from './review'
 import watchlist from './watchlist'
 import search from './search'
+import discover from './discover'
 const rootReducer = combineReducers({
     session: sessionReducer,
     trending,
     movie,
     review,
     watchlist,
-    search
+    search,
+    discover
 });
 
 

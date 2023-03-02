@@ -27,7 +27,6 @@ const initialState = {}
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_SEARCH: const newState = {}
-            console.log(action.movies.results, 'in search action')
             if (action.movies.results) {
                 action.movies.results.forEach(movie => {
                     newState[movie.id] = movie

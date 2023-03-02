@@ -2,45 +2,66 @@ import React from 'react';
 import './Search.css';
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect, useState} from 'react'
-import { useHistory } from 'react-router-dom';
-import { getSearch } from '../../store/search';
-export default function Search({placeholder, searchData}){
-const dispatch = useDispatch()
-const history = useHistory();
+import {useHistory} from 'react-router-dom';
+import {getSearch} from '../../store/search';
+export default function Search({placeholder, searchData}) {
+    const dispatch = useDispatch()
+    const history = useHistory();
 
-const [searchText, setSearchText] = useState('');
+    const [searchText, setSearchText] = useState('');
+    const searchObj = useSelector(state => state.search)
+    useEffect(() => {}, [dispatch])
+let search = []
 
 useEffect(() => {
-},[dispatch])
+
+
+    },[dispatch, search])
 
 
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.time('in handle submit')
-    dispatch(getSearch(searchText)).then(() => {
-       history.push('/search')
-    })
+    const handleSearching = async (e) => {
+        setSearchText(e.target.value)
+        if(searchObj){
+            search = Object.values(searchObj)
+        }
+     setTimeout(() => {
+            dispatch(getSearch(searchText)).then(() =>{
+                if(searchObj){
+                    search = Object.values(searchObj)
+                }
+            }).then((data) => {
+                dispatch(getSearch(searchText))
+            },5000);
+            }, 500)
 
-}
-    return (
+    }
+
+    const handleSubmit = async (e) => {
+
+        e.preventDefault();
+        dispatch(getSearch(searchText)).then(() => {
+            history.push('/search')
+        })
+
+    }
+    return search ? (
         <div className='search'>
             <div className='searchInputs'></div>
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit}>
 
-            <input type="text"  value={searchText}
-              onChange={
-                (e) => setSearchText(e.target.value)
-            }
-            placeholder='enter a movie name...'></input>
-            <input className='searchSubmit'  type='submit' value='submitSearch'></input>
-            <div className='searchIcon'></div>
-            <div className='dataResult'>
-                {/* {searchData.map((movie) => {
-                    return<div>{movie.title}</div>
+                <input className='searchArea' type="text"
+                    value={searchText}
+                    onChange={handleSearching}
+                    placeholder='enter a movie name...'></input>
+                <input className='searchSubmit' type='submit' value='search'></input>
+                <div className='searchIcon'></div>
+                <div className='dataResult'>
+                    {/* {search.map((movie) => {
+                    <div>{movie.title}</div>
                 })} */}
-            </div>
-                </form>
+                 </div>
+            </form>
         </div>
-    )
+    ) : (<div></div>)
 }
