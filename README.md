@@ -4,7 +4,7 @@ https://github.com/anti-epic/AllAboutMovies/wiki
 
 
 ##SplashPage
-###T he Homepage features a few components
+### The Homepage features a few components
 * demo user for easy access to some restricted features like watchlist and leaving a review.
 * Signup for new users 
 * login for existing users
