@@ -139,7 +139,13 @@ dispatch(getWatchlist())})
 
 
         </div>
-    <AddMovieToWatchlist className='watchlistContainer' movieId={movieId} />
+        {sessionUser !== Infinity ? (
+            <AddMovieToWatchlist className='watchlistContainer' movieId={movieId} />
+
+        ):
+        (
+            <div></div>
+        )}
     <div className='CastComponentContainer'>
 <Cast movieId={movieId} />
     </div>
