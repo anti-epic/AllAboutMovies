@@ -51,3 +51,7 @@ https://github.com/anti-epic/AllAboutMovies/wiki
 ![image](https://user-images.githubusercontent.com/110782272/222798892-9f138dc6-f1f9-4916-98d2-d9601745ef1c.png)
 
 
+## Search page
+* As you type it will pull data from the tmdb API so you can click and view their page.
+* data pulled on this page are title, movie, image, description and release date
+
