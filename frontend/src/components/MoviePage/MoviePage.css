@@ -40,9 +40,7 @@
 }
 
 .singleMovieTitle {
-
     margin-top:6em;
-
     position:relative;
     font-size: 22px;
     font-weight: bolder;
@@ -66,7 +64,25 @@
     margin-left:.5em;
   }
 
-
+  .singleMovieMoneyContainer{
+position: absolute;
+bottom: 0;
+right: 0;
+display: grid;
+    margin-top:5em;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-between;
+    font-size: 16px;
+    width:75em;
+  }
+.singleMovieRevenue{
+    display: grid;
+}
+.singleMovieBudget{
+    display: grid;
+}
+.singleMovieGross{
+}
 
   .singleMovieRating{
     display: grid;
@@ -165,28 +181,49 @@
 }
 
 
-.watchlistSingleMovieContainerDelete{
+/* .watchlistSingleMovieContainerDelete{
 
         display: grid;
         position: relative;
         width:12em;
         grid-template-rows: .5fr;
-        margin-left:10em;
 
     }
     .watchlistSingleMovieContainerAdd{
 
-        display: grid;
-        position: relative;
+    display: flex;
+
         width:12em;
-        grid-template-rows: .5fr;
-        margin-left:10em;
+
+
+    } */
+
+
+    .watchlistContainer{
+        position:absolute;
+        top:0;right:0;left:0;bottom:0;
+        z-index: 10;
+    }
+
+
+    .CastComponentContainer{
+        display: flex;
+        justify-content: center;
 
     }
 
 
-    .castAndWatchlistContainer{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        justify-content: start;
+    .trailersTitle{
+        display: flex;
+        color:white;
+        justify-content: center;
+        font-size: 32px;
+        font-weight: bolder;
+
+    }
+
+
+
+    .trailerComponentContainer{
+
     }

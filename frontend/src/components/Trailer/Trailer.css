@@ -1,0 +1,20 @@
+.videosContainer{
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    row-gap: 2em;
+    column-gap: 2em;
+    border:10px solid #102440;
+}
+
+
+
+.singleVideoContainer{
+    display: grid;
+    justify-content: center;
+}
+
+.singleVideoContainer video{
+    display: grid;
+
+}
