@@ -35,10 +35,14 @@ https://github.com/anti-epic/AllAboutMovies/wiki
 ## Trending & Discover
 * both are api calls to TMDB to grab current movies that are popular.
 * trending has the option of pull data for today or the week.
+![image](https://user-images.githubusercontent.com/110782272/222797137-9993dedd-97b3-4f21-9838-d0985ddf5e4e.png)
 
 ## Movie Page
 * Shows Movie banner, background splash image, description, genres, runtime, title, revenue,budget, gross profit, cast and trailers. All pulled from tmdb
 * add/remove to/from watchlist button so you can collect the movies that you want to watch
 * leave reviews for current movie your viewing
+![image](https://user-images.githubusercontent.com/110782272/222797081-13dff4a4-4828-4e43-acc8-398f55ea6588.png)
+![image](https://user-images.githubusercontent.com/110782272/222797787-d6f5d664-6309-4e58-8c9b-1f300170eafe.png)
+
 
 
