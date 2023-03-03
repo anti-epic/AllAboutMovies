@@ -44,5 +44,10 @@ https://github.com/anti-epic/AllAboutMovies/wiki
 ![image](https://user-images.githubusercontent.com/110782272/222797081-13dff4a4-4828-4e43-acc8-398f55ea6588.png)
 ![image](https://user-images.githubusercontent.com/110782272/222797787-d6f5d664-6309-4e58-8c9b-1f300170eafe.png)
 
+## WatchList 
+* If nothing is on the user's watchlist the discover list will pop up to recommend some movies to check out
+![image](https://user-images.githubusercontent.com/110782272/222798204-95c2c480-31a2-4e6c-bb35-630e951736ff.png)
+* If user has added movies then they show in the watchlist page
+![image](https://user-images.githubusercontent.com/110782272/222798892-9f138dc6-f1f9-4916-98d2-d9601745ef1c.png)
 
 
