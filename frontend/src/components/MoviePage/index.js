@@ -13,7 +13,7 @@ import UpdateReview from '../UpdateReview';
 import { getWatchlist} from '../../store/watchlist';
 import AddMovieToWatchlist from '../AddMovieToWatchlist/Index';
 import Cast from '../Cast/Index';
-
+import Trailer from '../Trailer/Index'
 
 
 
@@ -24,6 +24,7 @@ let reviews = [];
 let watchlist = [];
 let image;
 let title;
+let revenue;
 const [isLoaded, setIsLoaded] = useState(false);
 const [onWatchlist, setOnWatchlist] = useState(false);
 const {movieId} = useParams();
@@ -80,6 +81,7 @@ if(movieObj){
 movie = Object.values(movieObj);
 title = movieObj.title
 image = movieObj.poster_path
+revenue = movieObj.revenue
 
 }
 
@@ -115,7 +117,6 @@ dispatch(getWatchlist())})
     <div className='singleMovieRating'>User Score<br/>{Math.round(movieObj.vote_average * 10)} %</div>
     <div className='singleMovieTitle'>{movieObj.title}
     <div className='singleMovieSubDescription'>({releaseDate})
-
     {genres.map((genre) => (
         <div className='singleMovieGenres'> {genre.name}
         </div>
@@ -125,18 +126,27 @@ dispatch(getWatchlist())})
         </div>
     </div>
     <div className='singleMovieDescription'>{movieObj.overview}</div>
+    <div className='singleMovieMoneyContainer'>
+
+        <div className='singleMovieRevenue'>Revenue: {movieObj.revenue.toLocaleString("en-US")}</div>
+        <div className='singleMovieBuget'>Budget: {movieObj.budget.toLocaleString("en-US")}</div>
+        <div className='singleMovieGross'>Gross Profit: {(movieObj.revenue - movieObj.budget) > 0 ?
+       <div className='singleMovieGross' style={{color:'green',display: 'inline-block'}}> {(movieObj.revenue - movieObj.budget).toLocaleString("en-US")} </div>:<div className='singleMovieGross' style={{color:'red',display: 'inline-block'}}> {(movieObj.revenue - movieObj.budget).toLocaleString("en-US")} </div>}</div>
+    </div>
     </div>
 
             <div className='overlay'></div>
 
+
         </div>
-<div className='castAndWatchlistContainer'>
-    <AddMovieToWatchlist movieId={movieId} />
+    <AddMovieToWatchlist className='watchlistContainer' movieId={movieId} />
+    <div className='CastComponentContainer'>
 <Cast movieId={movieId} />
     </div>
 
 
-
+                <h1 className='trailersTitle'>Trailers</h1>
+    <div className='trailerComponentContainer'><Trailer movieId={movieId} /> </div>
 
 <div className='rContainer'>
 < div className = 'leaveReviewButton' > {
@@ -157,6 +167,7 @@ dispatch(getWatchlist())})
         </div>
 
             <Reviews/></div>
+
 < div > </div>
 
 

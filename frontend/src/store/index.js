@@ -8,6 +8,7 @@ import watchlist from './watchlist'
 import search from './search'
 import discover from './discover'
 import cast from './cast'
+import trailer from './trailer'
 const rootReducer = combineReducers({
     session: sessionReducer,
     trending,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
     watchlist,
     search,
     discover,
-    cast
+    cast,
+    trailer
 });
 
 

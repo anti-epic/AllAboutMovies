@@ -26,21 +26,6 @@ export default function AddMovieToWatchlist ({movieId}) {
 
 
 
-//         let usersWatchlistObj = useSelector(state => {
-//             return state.watchlist
-//         })
-
-// if(usersWatchlistObj){
-//     watchlist = Object.values(usersWatchlistObj)
-//     for (let i = 0; i < watchlist.length; i++) {
-//         if(watchlist[i].id === Number(movieId)){
-//             setOnWatchlist(1)
-//             break;
-//         }
-//     }
-// }
-
-
 
 useEffect(() => {
 
@@ -80,7 +65,7 @@ useEffect(() => {
 
 
 
-    return (<div>
+    return (<>
         {onWatchlist === false ? (
 
             <form className='watchlistSingleMovieContainerAdd ' onSubmit={handleSubmit}>
@@ -96,6 +81,6 @@ useEffect(() => {
                     {message}
                     </div>
             </form></div>)}
-    </div>
+    </>
     )
 }
