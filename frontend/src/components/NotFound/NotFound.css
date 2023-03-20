@@ -1,0 +1,136 @@
+
+.NotFoundContainer {
+    display: grid;
+    height: 94.5vh;
+    justify-content: center;
+    grid-template-columns: 1fr;
+
+
+
+}
+
+.NotFoundImage {
+    display: grid;
+    position:relative;
+    justify-content: center;
+    z-index: -2;
+    background-size: 100%;
+
+}
+
+.NotFoundOverlay{
+    position:absolute;
+    top:0;right:0;left:0;bottom:0;
+    width:100%;
+    height: 10%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+  .NotFoundOverlay2{
+    position:absolute;
+    top:20%;right:0;left:0;bottom:0;
+    width:100%;
+    height: 5%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+  .NotFoundOverlay3{
+    position:absolute;
+    top:40%;right:0;left:0;bottom:0;
+    width:100%;
+    height: 5%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+  .NotFoundOverlay4{
+    position:absolute;
+    top:60%;right:0;left:0;bottom:0;
+    width:100%;
+    height: 5%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+
+  .NotFoundOverlay5{
+    position:absolute;
+    top:80%;right:0;left:0;bottom:0;
+    width:100%;
+    height: 5%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+
+  .NotFoundOverlay6{
+    position:absolute;
+    top:10%;right:0;left:0;bottom:0;
+    width:100%;
+    height: 5%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+
+  .NotFoundOverlay7{
+    position:absolute;
+    top:30%;right:0;left:0;bottom:0;
+    width:100%;
+    height: 5%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+
+  .NotFoundOverlay8{
+    position:absolute;
+    top:50%;right:0;left:0;bottom:0;
+    width:100%;
+    height: 10%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+
+  .NotFoundOverlay9{
+    position:absolute;
+    top:70%;right:0;left:0;bottom:0;
+    width:100%;
+    height: 5%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+
+  .NotFoundOverlay10{
+    position:absolute;
+    top:90%;right:0;left:0;bottom:0;
+    width:100%;
+    height: 5%;
+    background-color:rgba(0,0,0,0.7);
+    z-index: -1;
+  }
+
+
+
+  .NotFoundHeader {
+    color:white;
+    position: relative;
+    z-index: 0;
+    display: grid;
+    justify-content: center;
+    height: 10%;
+    font-size: 40px;
+
+  }
+.NotFoundText{
+    color:white;
+    width:100%;
+    font-size: 28px;
+
+    display: grid;
+    position: relative;
+    z-index: 0;
+}
+
+.NotFoundLink{
+    position: relative;
+    z-index: 200;
+    border:1px solid red;
+    display: grid;
+    justify-content: center;
+}
