@@ -2,45 +2,44 @@ import React, {useState} from 'react';
 import {NavLink, useParams} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
-import './Cast.css'
+import './Crew.css'
 import {getCastThunk} from '../../store/cast';
 
 
-const Cast = () => {
+const Crew = () => {
     const dispatch = useDispatch()
 
-    let cast = [];
+    let crew = [];
     const [isLoaded, setIsLoaded] = useState(false);
     const {movieId} = useParams();
 
 
 
-    const castObj = useSelector(state => {
+    const crewObj = useSelector(state => {
         return state.cast.cast
     })
 
 
-    if (castObj) {
-        cast = Object.values(castObj)
+    if (crewObj) {
+        console.log(crewObj, 'here')
+        crew = Object.values(crewObj.crew)
+
 
     }
 
 
     useEffect(() => {
-
-
         dispatch(getCastThunk(movieId)).then((data) => {
             setIsLoaded(true)
         })
-
     }, [dispatch, movieId])
 
 
     return isLoaded ? (<div className='castComponentContainer'>
-            <h1 className='castHeader'>Cast</h1>
+            <h1 className='castHeader'>Crew</h1>
         <div className='castContainer'>
             {
-                    cast[1].map((member) => ( member ? (
+                    crew.map((member) => ( member ? (
                     <div className='singleCastCard'>
                         {member.profile_path !== null ? (       <img  className="singleCastImage"src={`https://image.tmdb.org/t/p/w300/${member.profile_path}`}></img>): (<img  className="singleCastImage"src={`/Default-Profile.png`}></img>)}
                         <div className='castName'> {member.name}</div>
@@ -55,8 +54,8 @@ const Cast = () => {
 
     ) : (
         <>
-            loading cast data</>
+            loading crew data</>
     )
 }
 
-export default Cast
+export default Crew
