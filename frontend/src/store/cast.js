@@ -30,7 +30,6 @@ const castReducer = (state = initialState, action) => {
     switch(action.type){
         case LOAD_CAST:
                 let loadCastState = {...action.movie ,cast : action.cast}
-                console.log(loadCastState.cast, 'hh', action)
                 return loadCastState
         default:
             return state
