@@ -46,7 +46,6 @@ export default function Trending() {
             <div className='trendingButtonsContainer'>
                 <div className='trendingButtonHeader'>Trending</div>
                 <button className='buttonOptions' autoFocus
-
                     onClick={
                         () => setTrending(1)
                 }>Today</button>
