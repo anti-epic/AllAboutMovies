@@ -1,14 +1,28 @@
 .trendingMovies{
  display: flex;
- overflow: hidden;
  margin-top: 1em;
+ position: relative;
+ width:250%;
 }
 
+@keyframes marquee {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: -177%;
+    }
+}
+.animate {
+    animation: marquee 40s linear infinite;
+    top: 50%;
+    transform: translate(0, -50%);
+}
 .trendingSingleMovie {
 
     animation: fadeIn 2s;
     margin-left: 1em;
-
+    height: 14em;
 }
 
 
@@ -31,6 +45,7 @@
     grid-auto-flow: column ;
     column-gap: 1em;
     margin-top: .5em;
+    margin-bottom: -7em;
     font-weight: 200;
     text-shadow: 1px 1px 2px black;
     font-family: 'Alfa Slab One', cursive;
@@ -85,7 +100,9 @@ margin-left: .1em;
     100% { opacity: 1; }
   }
 
-  /* @keyframes fadeOut {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
-  } */
+
+  .Ranking{
+    color: white;
+    display: inline;
+    font-size: 10px;
+  }
