@@ -7,6 +7,7 @@ import SplashPage from './components/SplashPage'
 import MoviePage from "./components/MoviePage";
 import Watchlist from "./components/Watchlist/Watchlist";
 import SearchPage from "./components/SearchPage";
+import NotFound from "./components/NotFound";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,6 +24,7 @@ function App() {
           <Route path='/movie/:movieId' component={MoviePage} />
           <Route path='/watchlist' component={Watchlist} />
           <Route path="/search" component={SearchPage} />
+          <Route path="*" component={NotFound} />
         </Switch>
       )}
     </>

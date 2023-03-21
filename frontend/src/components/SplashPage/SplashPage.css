@@ -37,5 +37,14 @@ body {
 
 
 .searchContainer{
-    margin-top:2em;
+    margin-top:2em
+}
+
+.TrendingContainer {
+    height: 30em;
+    overflow-x: hidden;
+}
+
+.DiscoverContainer {
+    margin-top:-6em;
 }

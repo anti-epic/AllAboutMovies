@@ -14,6 +14,7 @@ import { getWatchlist} from '../../store/watchlist';
 import AddMovieToWatchlist from '../AddMovieToWatchlist/Index';
 import Cast from '../Cast/Index';
 import Trailer from '../Trailer/Index'
+import Crew from '../Crew';
 
 
 
@@ -27,6 +28,7 @@ let title;
 let revenue;
 const [isLoaded, setIsLoaded] = useState(false);
 const [onWatchlist, setOnWatchlist] = useState(false);
+const [castOrCrew, setCastOrCrew] = useState('cast')
 const {movieId} = useParams();
 let sessionUser = useSelector(state => state.session.user);
 let isLoggedIn = false
@@ -146,14 +148,32 @@ dispatch(getWatchlist())})
         (
             <div></div>
         )}
+        <div className='memberContainer'>
+
+    <button className='memberOptions' autoFocus
+                    onClick={
+                        () => setCastOrCrew('cast')
+                    }>Cast</button>
+                <button className='memberOptions'
+                    onClick={
+                        () => setCastOrCrew('crew')
+                     }>Crew</button>
+                                  <button className='memberOptions'
+                    onClick={
+                        () => setCastOrCrew('trailer')
+                    }>Trailer</button>
+        </div>
     <div className='CastComponentContainer'>
-<Cast movieId={movieId} />
+                  {
+                      castOrCrew === 'cast' && (<><Cast movieId={movieId} /> </>)
+                    }
+                  {
+                      castOrCrew === 'crew' && (<><Crew movieId={movieId} /> </>)
+                    }
+                                      {
+                      castOrCrew === 'trailer' && (<><Trailer movieId={movieId} /> </>)
+                    }
     </div>
-
-
-                <h1 className='trailersTitle'>Trailers</h1>
-    <div className='trailerComponentContainer'><Trailer movieId={movieId} /> </div>
-
 <div className='rContainer'>
 < div className = 'leaveReviewButton' > {
     (alreadyReviewed === false) && (sessionUser.id !== undefined) ? (

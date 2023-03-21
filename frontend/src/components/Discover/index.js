@@ -24,8 +24,23 @@ export default function Discover() {
     return discoverObj ? (<>
             <div className='discoverButtonHeader'>Discover</div>
         <div className='discoverButtonContainer'>
-        <div className='discoverMovies' style={{backgroundImage: `url("./movie-background.png")`,  backgroundSize: 'contain'}}>
+        <div className='discoverMovies  animateDiscover ' style={{backgroundImage: `url("./movie-background.png")`,  backgroundSize: 'contain'}}>
             {discover.map((movie) => ( movie ? (
+                <div className='discoverSingleMovie'>
+                <NavLink key={movie.id} to={`/movie/${movie.id}`}>
+                <img  className="discoverSingleMovieImage"src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`}></img>
+                </NavLink>
+                <div className='discoverSingleMovieRating'>{Math.round(movie.vote_average * 10)} <i className="fa-solid fa-percent fa-2xs"></i></div>
+                <div className='discoverSingleMovieTitleContainer'>
+                <NavLink  className='discoverSingleMovieTitle'style={{ textDecoration: 'none' }} to={`/movies/${movie.id}`}>
+                    
+                {movie.title ?(movie.title) : (movie.name)}
+                </NavLink>
+                </div>
+                </div>
+
+                ) : (<div></div>)))}
+                           {discover.map((movie) => ( movie ? (
                 <div className='discoverSingleMovie'>
                 <NavLink key={movie.id} to={`/movie/${movie.id}`}>
                 <img  className="discoverSingleMovieImage"src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`}></img>

@@ -1,6 +1,6 @@
 .videosContainer{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     border-radius: 12px;
     row-gap: 2em;
     column-gap: 2em;
@@ -11,10 +11,17 @@
 
 .singleVideoContainer{
     display: grid;
+
     justify-content: center;
+
 }
 
 .singleVideoContainer video{
     display: grid;
 
+}
+.trailersTitle{
+
+text-align: center;
+color:white;
 }

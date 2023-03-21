@@ -46,7 +46,6 @@ export default function Trending() {
             <div className='trendingButtonsContainer'>
                 <div className='trendingButtonHeader'>Trending</div>
                 <button className='buttonOptions' autoFocus
-
                     onClick={
                         () => setTrending(1)
                 }>Today</button>
@@ -55,7 +54,7 @@ export default function Trending() {
                         () => setTrending(2)
                 }>This Week</button>
             </div>
-            <div className='trendingMovies'
+            <div className='trendingMovies animate'
                 style={
                     {
                         backgroundImage: `url("./movie-background.png")`,
@@ -66,7 +65,57 @@ export default function Trending() {
                 {
                 trending == 1 && (
                     <> {
-                        trendingTodayMovies.map((movie) => (movie ? (
+                        trendingTodayMovies.map((movie, i) => (movie ? (
+                            <div className='trendingSingleMovie'>
+                                <NavLink key={
+                                        movie.id
+                                    }
+                                    to={
+                                        `/movie/${
+                                            movie.id
+                                        }`
+                                }>
+                                    <img className="trendingSingleMovieImage"
+                                        src={
+                                            `https://image.tmdb.org/t/p/w154/${
+                                                movie.poster_path
+                                            }`
+                                    }></img>
+                                </NavLink>
+                                <div className='trendingSingleMovieRating'>
+                                    {
+                                    Math.round(movie.vote_average * 10)
+                                }
+                                    <i className="fa-solid fa-percent fa-2xs"></i>
+
+                                </div>
+                                <div className='trendingSingleMovieTitleContainer'>
+
+                                    <NavLink className='trendingSingleMovieTitle'
+                                        style={
+                                            {textDecoration: 'none'}
+                                        }
+                                        to={
+                                            `/movies/${
+                                                movie.id
+                                            }`
+                                    }><h1 className='Ranking'>
+                                    {i+1} |
+                                    </h1>
+                                        {
+                                        movie.title ? (movie.title) : (movie.name)
+                                    } </NavLink>
+                                </div>
+                            </div>
+
+
+                        ) : (
+                            <div>
+                                loading trending movies by day</div>
+                        )))
+
+                    }{
+                        trendingTodayMovies.map((movie,i) => (movie ? (
                             <div className='trendingSingleMovie'>
                                 <NavLink key={
                                         movie.id
@@ -98,17 +147,21 @@ export default function Trending() {
                                             `/movies/${
                                                 movie.id
                                             }`
-                                    }>
+                                    }><h1 className='Ranking'>
+                                    {i+1} |
+                                    </h1>
                                         {
                                         movie.title ? (movie.title) : (movie.name)
                                     } </NavLink>
                                 </div>
                             </div>
 
+
                         ) : (
                             <div>
                                 loading trending movies by day</div>
                         )))
+
                     }</>
                 )
             }
@@ -116,7 +169,7 @@ export default function Trending() {
 
                 trending === 2 && (
                     <> {
-                        trendingWeekMovies.map((movie) => (movie ? (
+                        trendingWeekMovies.map((movie, i) => (movie ? (
                             <div className='trendingSingleMovie'>
                                 <NavLink key={
                                         movie.id
@@ -148,7 +201,9 @@ export default function Trending() {
                                             `/movies/${
                                                 movie.id
                                             }`
-                                    }>
+                                    }><h1 className='Ranking'>
+                                    {i+1} |
+                                    </h1>
                                         {
                                         movie.title ? (movie.title) : (movie.name)
                                     } </NavLink>
@@ -159,7 +214,58 @@ export default function Trending() {
                             <div>
                                 loading trending movies by day</div>
                         )))
-                    } </>
+
+                    }
+                    {
+                        trendingWeekMovies.map((movie,i) => (movie ? (
+                            <div className='trendingSingleMovie'>
+                                <NavLink key={
+                                        movie.id
+                                    }
+                                    to={
+                                        `/movie/${
+                                            movie.id
+                                        }`
+                                }>
+                                    <img className="trendingSingleMovieImage"
+                                        src={
+                                            `https://image.tmdb.org/t/p/w154/${
+                                                movie.poster_path
+                                            }`
+                                    }></img>
+                                </NavLink>
+                                <div className='trendingSingleMovieRating'>
+                                    {
+                                    Math.round(movie.vote_average * 10)
+                                }
+                                    <i className="fa-solid fa-percent fa-2xs"></i>
+                                </div>
+                                <div className='trendingSingleMovieTitleContainer'>
+                                    <NavLink className='trendingSingleMovieTitle'
+                                        style={
+                                            {textDecoration: 'none'}
+                                        }
+                                        to={
+                                            `/movies/${
+                                                movie.id
+                                            }`
+                                    }><h1 className='Ranking'>
+                                        {i+1} |
+                                        </h1>
+                                        {
+                                        movie.title ? (movie.title) : (movie.name)
+                                    } </NavLink>
+                                </div>
+                            </div>
+
+                        ) : (
+                            <div>
+                                loading trending movies by day</div>
+                        )))
+
+                    }
+
+                    </>
                 )
             } </div>
         </>

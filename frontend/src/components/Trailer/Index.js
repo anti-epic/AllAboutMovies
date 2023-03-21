@@ -6,6 +6,7 @@ const Trailer = ({movieId}) => {
     const dispatch = useDispatch();
     let trailers = [];
     const [isLoaded, setIsLoaded] = useState(false);
+    let count = 0;
     const trailerObj = useSelector(state => {
         return state.trailer
     })
@@ -20,21 +21,25 @@ const Trailer = ({movieId}) => {
 
 
     return isLoaded ? (
-
+<div>
+<h1 className='trailersTitle'>Trailers</h1>
       <div className='videosContainer'>
         {trailers.map((trailer) => (
-            <div className='singleVideoContainer'>
+            count < 2 ? ++count &&(
+
+                <div className='singleVideoContainer'>
+
 
 <iframe width="600" height="400" src={`https://www.youtube.com/embed/${trailer.key}`}
 frameborder="0"
 allowFullScreen></iframe>
                 </div>
+        ): (<></>)
         ))}
 
-
-    </div>) :
-    (<div>
-        loading movies
+        </div></div>) :
+        (<div>
+        loading trailer data
     </div>)
 
 }

@@ -36,7 +36,6 @@ const trailerReducer = (state = initialState, action) => {
         case LOAD_TRAILER:
             let loadTrailerState = {
             }
-            console.log(action.trailer.results,'lol')
             if(action.trailer.results){
                 action.trailer.results.forEach(video => {
                     if(video.site === "YouTube" && video.type === 'Trailer'){

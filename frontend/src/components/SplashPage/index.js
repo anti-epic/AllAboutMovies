@@ -48,10 +48,10 @@ const SplashPage = () => {
             <div className='splashMessage'>Millions of movies, TV shows and people to discover. Explore now
             </div>
         </div>
-        <div className='trending'>
+        <div className='TrendingContainer'>
             <Trending/>
         </div>
-        <div className='discover'>
+        <div className='DiscoverContainer'>
             <Discover />
         </div>
         <Footer />
