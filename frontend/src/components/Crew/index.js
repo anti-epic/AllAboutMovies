@@ -14,17 +14,13 @@ const Crew = () => {
     const {movieId} = useParams();
 
 
-
     const crewObj = useSelector(state => {
         return state.cast.cast
     })
 
 
     if (crewObj) {
-        console.log(crewObj, 'here')
         crew = Object.values(crewObj.crew)
-
-
     }
 
 
@@ -35,22 +31,39 @@ const Crew = () => {
     }, [dispatch, movieId])
 
 
-    return isLoaded ? (<div className='castComponentContainer'>
+    return isLoaded ? (
+        <div className='castComponentContainer'>
             <h1 className='castHeader'>Crew</h1>
-        <div className='castContainer'>
-            {
-                    crew.map((member) => ( member ? (
+            <div className='castContainer'>
+                {
+                crew.map((member) => (member ? (
                     <div className='singleCastCard'>
-                        {member.profile_path !== null ? (       <img  className="singleCastImage"src={`https://image.tmdb.org/t/p/w300/${member.profile_path}`}></img>): (<img  className="singleCastImage"src={`/Default-Profile.png`}></img>)}
-                        <div className='castName'> {member.name}</div>
-                        <div className='caseMovieName' >{member.character}</div>
-                        </div>
-                    ): <div>no</div>))
+                        {
+                        member.profile_path !== null ? (
+                            <img className="singleCastImage"
+                                src={
+                                    `https://image.tmdb.org/t/p/w300/${
+                                        member.profile_path
+                                    }`
+                            }></img>
+                        ) : (
+                            <img className="singleCastImage"
+                                src={`/Default-Profile.png`}></img>
+                        )
+                    }
+                        <div className='castName'>
+                            {
+                            member.name
+                        }</div>
+                        <div className='caseMovieName'>
+                            {
+                            member.character
+                        }</div>
+                    </div>
+                ) : <div>no</div>))
+            } </div>
 
-            }
-            </div>
-
-            </div>
+        </div>
 
     ) : (
         <>

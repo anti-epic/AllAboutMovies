@@ -10,8 +10,13 @@ const SearchPage = () => {
     const [isLoaded, setIsLoaded] = useState(false);
     const searchDataObj = useSelector(state => state.search);
     let searchData = []
+
     if(searchDataObj){
         searchData = Object.values(searchDataObj)
+      searchData.sort((a,b) => {
+            return   new Date(b.release_date) -  new Date(a.release_date)
+
+       })
     }
     useEffect(() => {
         setIsLoaded(true)
