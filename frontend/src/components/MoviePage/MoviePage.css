@@ -230,36 +230,21 @@ display: grid;
         overflow: hidden;
     margin-top:1em;
     display: grid;
-    justify-content: center;
-    align-items: center;
     align-content: center
     }
-    .memberOptions:active{
-        cursor: pointer;
-        color: black;
-        font-size: 12px;
-        border: 0.3em solid #081220;
-        border-radius: 0.5em;
-        width: 20em;
-        height: 3em;
-        background-color:#102440;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-family: sans-serif;
-        letter-spacing: 0.1em;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    margin-top:1em;
 
-
+    .memberOptions:focus {
+        background-color:  #92aaca;
+        color: #102440;
+        border:0px;
+        text-decoration:none;
     }
-
+.MovieButtonsContainer{
+    display: grid;
+    justify-content:center;
+}
     .memberContainer{
         display: grid;
-        width:50%;
-        margin-left: 25vw;
-        justify-content: end;
+        column-gap: 1em;
         grid-template-columns:1fr 1fr 1fr;
-        justify-content: center;
     }

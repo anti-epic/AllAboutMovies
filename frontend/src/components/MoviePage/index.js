@@ -148,6 +148,8 @@ dispatch(getWatchlist())})
         (
             <div></div>
         )}
+        <div className='MovieButtonsContainer'>
+            <div></div>
         <div className='memberContainer'>
 
     <button className='memberOptions' autoFocus
@@ -157,12 +159,13 @@ dispatch(getWatchlist())})
                 <button className='memberOptions'
                     onClick={
                         () => setCastOrCrew('crew')
-                     }>Crew</button>
+                    }>Crew</button>
                                   <button className='memberOptions'
                     onClick={
                         () => setCastOrCrew('trailer')
                     }>Trailer</button>
         </div>
+                    </div>
     <div className='CastComponentContainer'>
                   {
                       castOrCrew === 'cast' && (<><Cast movieId={movieId} /> </>)
