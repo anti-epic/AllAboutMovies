@@ -47,4 +47,5 @@ body {
 
 .DiscoverContainer {
     margin-top:-6em;
+    overflow-x: hidden;
 }
