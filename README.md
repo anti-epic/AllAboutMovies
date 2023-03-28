@@ -1,6 +1,15 @@
 # AllAboutMovies
 https://github.com/anti-epic/AllAboutMovies/wiki
 
+## Live Site
+https://all-about-movies.onrender.com/
+
+## Main Technologies
+Express.js <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--YbV36HLj--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/hpg6if7btrwilqkidqbe.png" width="200" height="100">
+| Sequelize <img src="https://sequelize.org/img/logo.svg" width="100" height="100">
+| Postgres <img src="https://www.postgresql.org/media/img/about/press/elephant.png" width="100" height="100">
+| React <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png" width="100" height="100">
+| Redux <img src="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png" width="100" height="100">
 
 
 ## SplashPage
