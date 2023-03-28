@@ -11,6 +11,9 @@
     width:250%;
     position: relative;
    }
+   .discoverMovies:hover{
+    animation-play-state: paused;
+   }
 
    @keyframes marquee {
     0% {
@@ -19,9 +22,11 @@
     100% {
         left: -177%;
     }
+
 }
 .animateDiscover {
     animation: marquee 60s linear infinite;
+
     top: 80%;
     animation-delay: 2s;
     transform: translate(0, -50%);
