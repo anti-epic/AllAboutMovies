@@ -42,6 +42,7 @@ router.post('/:movieId', requireAuth, async (req, res, next) => {
   const {movieId} = req.params;
   const {rating} = req.body;
   console.log(typeof req.user.id)
+  const user = await User.findByPk(req.user.id);
   const movie = await Movie.findByPk(movieId);
   if (! movie) {
       res.statusCode = 404;
@@ -57,7 +58,7 @@ for(let i = 0; i < userRatings.length; i++){
     userRatings[i].destroy()
   }
 }
-  const newRating = await Rating.create({stars:rating, movieId, userId:req.user.id})
+  const newRating = await Rating.create({stars:rating, movieId: movieId, userId:user.id})
   res.statusCode = 201;
   return res.json({"message" : "new rating added"})
 });
