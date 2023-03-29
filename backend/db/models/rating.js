@@ -11,6 +11,14 @@ module.exports = (sequelize, DataTypes) => {
             Rating.belongsTo(models.Movie, {foreignKey: 'id'})
         }
     } Rating.init({
+        stars: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+                min: 1,
+                max: 10
+            }
+        },
         userId: {
             type: DataTypes.INTEGER,
             allowNull: false
@@ -19,14 +27,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        stars: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                min: 1,
-                max: 10
-            }
-        }
     }, {sequelize, modelName: 'Rating'});
     return Rating;
 };

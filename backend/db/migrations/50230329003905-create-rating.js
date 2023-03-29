@@ -14,10 +14,9 @@ module.exports = {
                 primaryKey: true,
                 type: Sequelize.INTEGER
             },
-            userId: {
+            stars: {
                 type: Sequelize.INTEGER,
-                allowNull: false,
-                references: {model: 'Users'}
+                allowNull: false
             },
             movieId: {
                 type: Sequelize.INTEGER,
@@ -26,9 +25,10 @@ module.exports = {
                     model: 'Movies'
                 }
             },
-            stars: {
+            userId: {
                 type: Sequelize.INTEGER,
-                allowNull: false
+                allowNull: false,
+                references: {model: 'Users'}
             },
             createdAt: {
                 allowNull: false,

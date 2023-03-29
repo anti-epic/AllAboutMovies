@@ -16,9 +16,10 @@ const {
 router.get('/', requireAuth, async(req,res,next) =>{
 
 
-console.log(req.user.id)
+  console.log(typeof req.user.id)
 
   const rating = await Rating.findAll({
+    attributes: ['id', 'userId', 'movieId', 'stars', 'createdAt', 'updatedAt'],
     where: {userId:req.user.id}
   });
   const movieIds = rating.map((rating) => rating.movieId);
@@ -40,6 +41,7 @@ console.log(req.user.id)
 router.post('/:movieId', requireAuth, async (req, res, next) => {
   const {movieId} = req.params;
   const {rating} = req.body;
+  console.log(typeof req.user.id)
   const movie = await Movie.findByPk(movieId);
   if (! movie) {
       res.statusCode = 404;
@@ -47,6 +49,7 @@ router.post('/:movieId', requireAuth, async (req, res, next) => {
   }
 
   let userRatings = await Rating.findAll({
+    attributes: ['id', 'userId', 'movieId', 'stars', 'createdAt', 'updatedAt'],
     where: {userId:req.user.id}
 })
 for(let i = 0; i < userRatings.length; i++){
