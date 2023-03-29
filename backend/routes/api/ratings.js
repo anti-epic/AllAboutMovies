@@ -110,7 +110,6 @@ router.post('/:movieId', requireAuth, async (req, res, next) => {
 
   try {
     let userRatings = await Rating.findAll({
-      attributes: ['id', 'userId', 'movieId', 'stars', 'createdAt', 'updatedAt'],
       where: { userId: req.user.id }
     });
 
