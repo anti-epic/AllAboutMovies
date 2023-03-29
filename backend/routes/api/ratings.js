@@ -58,7 +58,11 @@ for(let i = 0; i < userRatings.length; i++){
     userRatings[i].destroy()
   }
 }
-  const newRating = await Rating.create({stars:rating, movieId: movieId, userId:user.id})
+  const newRating = await Rating.create({
+  stars: rating,
+  movieId: movieId,
+  UserId: user.id // use the user's id as the foreign key value
+});
   res.statusCode = 201;
   return res.json({"message" : "new rating added"})
 });
