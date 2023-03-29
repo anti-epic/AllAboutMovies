@@ -9,6 +9,7 @@ import search from './search'
 import discover from './discover'
 import cast from './cast'
 import trailer from './trailer'
+import rating from './rating'
 const rootReducer = combineReducers({
     session: sessionReducer,
     trending,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     search,
     discover,
     cast,
-    trailer
+    trailer,
+    rating
 });
 
 

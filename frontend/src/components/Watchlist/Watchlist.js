@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getMovie} from '../../store/movie';
 import {Link} from 'react-router-dom';
 import Discover from '../Discover';
+import ViewRatings from '../ViewRatings';
 
 export default function Watchlist() {
     const dispatch = useDispatch();
@@ -32,37 +33,42 @@ export default function Watchlist() {
 
 
     return isLoaded ? (
-        <div>{
+        <>{
             watchlist.length > 0 ? (
 
 
-                <div>
+                <div className='mainContainer' >
                     <h1 className='watchlistTitle'>
                         WATCHLIST</h1>
-
                     <div className='watchlistContainer'>
                         {
-                        watchlist.map((movie) => (
+                            watchlist.map((movie) => (
 
-                            <Link className='watchlistCard'
+                                <Link className='watchlistCard'
                                 to={
                                     `movie/${
                                         movie.id
                                     }`
-                            }>
+                                }>
                                 <img className="watchlistSingleMovieImage"
                                     src={
                                         `${
                                             movie.image
                                         }`
-                                }></img>
-                                <div className='testing'>
+                                    }></img>
+                                <div className='movieTitle'>
                                     {
-                                    movie.title
-                                } </div>
+                                        movie.title
+                                    } </div>
                             </Link>
                         ))
                     } </div>
+                          <h1 className='ratingsTitle'>
+                        RATINGS</h1>
+                    <div className='ratingsContainer'>
+                    <ViewRatings  />
+
+                        </div>
                 </div>
             ) : (
                 <div>
@@ -74,7 +80,8 @@ export default function Watchlist() {
                     <Discover/>
                 </div>
             )
-        }</div>
+        }
+        </>
     ) : (
         <div>
             loading watchlist</div>

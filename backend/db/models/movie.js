@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
       Movie.hasMany(models.Review, {
         foreignKey: 'movieId'
       });
+      Movie.hasMany(models.Rating,{
+        foreignKey: 'movieId'
+      });
     }
   }
   Movie.init({

@@ -1,10 +1,29 @@
+.mainContainer{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
 .watchlistContainer{
     display:  flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top:10em;
-
+    position: relative;
 }
+
+
+.ratingsContainer{
+    display: grid;
+    position: relative;
+}
+
+
+
+
+
+
+
+
 .watchlistTitle{
     display: grid;
     text-align: center;
@@ -30,7 +49,7 @@ text-decoration: none;
     }
 
 
-    .testing{
+    .movieTitle{
         font-size: 20px;
         overflow-wrap: break-word;
     }

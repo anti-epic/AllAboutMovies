@@ -1,7 +1,3 @@
-.watchlistSingleMovieContainer
-{
-
-}
 
 
 .watchlistSingleMovieContainerDelete input
@@ -52,8 +48,7 @@ margin-top:1em;
 
 
 .watchlistMessagePopup {
-    position: absolute;
-    margin-left:20em;
+
     width:20em;
     color: #92aaca;
 
