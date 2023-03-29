@@ -98,24 +98,7 @@ router.get('/', requireAuth, async(req,res,next) =>{
 //     console.error(error);
 //     return res.status(500).json({ message: 'Internal server error' });
 //   }
-
-
-
-
-
-
-
-
-
-
 // });
-
-
-
-
-
-
-
 router.post('/:movieId', requireAuth, async (req, res, next) => {
 
   const rating = req.body.rating;
