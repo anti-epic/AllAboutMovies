@@ -3,7 +3,8 @@ const router = express.Router();
 const {requireAuth} = require('../../utils/auth');
 const {
    Rating,
-   Movie
+   Movie,
+   User
 } = require('../../db/models')
 
 
@@ -13,23 +14,25 @@ const {
 
 
 router.get('/', requireAuth, async(req,res,next) =>{
-const {id} = req.user
-console.log(id, 'here with user')
+const {userId} = req.user
 
 
-const rating = await Rating.findAll({
+if(userId){
+
+  const rating = await Rating.findAll({
     where: {
-      userId: id
+      userId
     }
   });
-const movieIds = rating.map((rating) => rating.movieId);
-const movies = await Movie.findAll({
+  const movieIds = rating.map((rating) => rating.movieId);
+  const movies = await Movie.findAll({
     where: {
-        id: movieIds,
+      id: movieIds,
     },
-});
+  });
 
-return res.json({rating, movies})
+  return res.json({rating, movies})
+}
 
 })
 
@@ -48,7 +51,7 @@ router.post('/:movieId', requireAuth, async (req, res, next) => {
   }
 
   let userRatings = await Rating.findAll({
-    where: {userId},
+    where: {userId}
 })
 for(let i = 0; i < userRatings.length; i++){
   if(userRatings[i].dataValues.movieId == movieId){
@@ -57,7 +60,7 @@ for(let i = 0; i < userRatings.length; i++){
 }
   const newRating = await Rating.create({stars:rating, movieId, userId})
   res.statusCode = 201;
-  return res.json({newRating})
+  return res.json({"message" : "new rating added"})
 });
 
 
