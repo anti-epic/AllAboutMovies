@@ -61,6 +61,7 @@ for(let i = 0; i < userRatings.length; i++){
   const newRating = await Rating.create({
   stars: rating,
   movieId: movieId,
+  userId: req.user.id,
   UserId: user.id // use the user's id as the foreign key value
 });
   res.statusCode = 201;
