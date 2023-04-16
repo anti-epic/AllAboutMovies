@@ -15,6 +15,7 @@ import AddMovieToWatchlist from '../AddMovieToWatchlist/Index';
 import Cast from '../Cast/Index';
 import Trailer from '../Trailer/Index'
 import Crew from '../Crew';
+import CreateRating from '../CreateRating';
 
 
 
@@ -142,12 +143,16 @@ dispatch(getWatchlist())})
 
         </div>
         {sessionUser !== Infinity ? (
-            <AddMovieToWatchlist className='watchlistContainer' movieId={movieId} />
+        <div className='loggedInExclusiveOptions'>
 
-        ):
+
+           <div className='watchlistContainer'><AddMovieToWatchlist movieId={movieId} /></div>
+            <div className='ratingContainer'><CreateRating movieId={movieId}  /></div>
+                    </div>
+            ):
         (
             <div></div>
-        )}
+            )}
         <div className='MovieButtonsContainer'>
             <div></div>
         <div className='memberContainer'>
