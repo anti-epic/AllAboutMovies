@@ -2,11 +2,9 @@
 
     animation: fadeIn 2s;
     margin-left: 1em;
-
 }
 .discoverMovies{
     display: flex;
-    margin-top: 1em;
     margin-top: 10em;
     width:250%;
     position: relative;
@@ -27,13 +25,13 @@
 .animateDiscover {
     animation: marquee 60s linear infinite;
 
-    top: 80%;
     animation-delay: 2s;
     transform: translate(0, -50%);
 }
 
    .discoverSingleMovieImage{
        z-index: -1;
+
    }
    .discoverButtonHeader{
        font-size: 20px;
