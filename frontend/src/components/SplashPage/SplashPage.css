@@ -41,11 +41,11 @@ body {
 }
 
 .TrendingContainer {
-    height: 30em;
+    height: 23em;
     overflow-x: hidden;
 }
 
 .DiscoverContainer {
-    margin-top:-6em;
+
     overflow-x: hidden;
 }
