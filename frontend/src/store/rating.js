@@ -30,7 +30,6 @@ if(response.ok){
 
 
 export const createRatingThunk = (movieId, rating) => async dispatch => {
-    console.log(movieId, rating, 'lll')
     const response = await csrfFetch(`/api/ratings/${movieId}`, {
         method: 'POST',
         headers: {"Content-Type" : "application/json"},
@@ -41,7 +40,7 @@ export const createRatingThunk = (movieId, rating) => async dispatch => {
         const data = await response.json();
         dispatch(createRating(data))
     }
-    else{console.log('here ', response)}
+
 
 }
 
@@ -59,12 +58,9 @@ const initialState = {
     switch(action.type){
         case LOAD_RATINGS:
             const newState={...action.ratings}
-            console.log('in rating reducer', action.ratings)
             return newState
         case CREATE_RATING:
             const createRatingState= {...state};
-            console.log('in create rating reducer')
-            // createRatingState[action.review.id] = action.review;
             return createRatingState
         default:
             return state
