@@ -113,7 +113,7 @@ dispatch(getWatchlist())})
 
    return  isLoaded  ? (
         <div className='singleMovieContainer'>
-        <div className = 'singleMovieTopContainer' style = {{backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieObj.backdrop_path})`,  backgroundSize: 'cover'}} >
+        <div className = 'singleMovieTopContainer' style = {{backgroundImage: `url(https://image.tmdb.org/t/p/original/${movieObj.backdrop_path})`,  backgroundSize: 'cover', backgroundPosition: 'center 35%'}} >
 
     <div className='imageContainer'> <img  className="singleMovieImage"src={`https://image.tmdb.org/t/p/w300/${movieObj.poster_path}`}></img>
     </div>

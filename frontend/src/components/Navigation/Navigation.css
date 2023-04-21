@@ -2,7 +2,7 @@
     border: 1px solid black;
     background-color:#102440;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
     height:3.1em;

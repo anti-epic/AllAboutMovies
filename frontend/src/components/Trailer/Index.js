@@ -30,7 +30,7 @@ const Trailer = ({movieId}) => {
                 <div className='singleVideoContainer'>
 
 
-<iframe width="600" height="400" src={`https://www.youtube.com/embed/${trailer.key}`}
+<iframe className='trailers' src={`https://www.youtube.com/embed/${trailer.key}`}
 frameborder="0"
 allowFullScreen></iframe>
                 </div>

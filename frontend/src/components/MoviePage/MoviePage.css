@@ -237,3 +237,65 @@ display: grid;
         column-gap: 1em;
         grid-template-columns:1fr 1fr 1fr;
     }
+
+
+    @media (min-width: 1px) and (max-width: 981px) {
+
+        .singleMovieContainer{
+
+            height: 110em;
+        }
+        .singleMovieTopContainer{
+            grid-template-columns: 2fr .5fr .2fr .2fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+            height: 75em;
+            background-position: 'right';
+        }
+/*
+        .singleMovieDescription{
+            position:relative;
+            margin-top: 2em;
+            font-size: 14px;
+        }
+        .singleMovieRating{
+            position:relative;
+
+        }
+        .singleMovieRuntime{
+            font-size: 12px;
+            display: inline;
+            margin-left: .5em;
+        }
+        .singleMovieImage {
+            margin-top: 2.5em;
+            margin-bottom: 2.5em;
+            display: grid;
+            justify-content: center;
+            position:relative;
+
+        }
+
+        .imageContainer{
+            display: grid;
+            justify-content: center;
+        }
+
+        .singleMovieTitle {
+            margin-top:6em;
+            position:relative;
+            font-size: 22px;
+            font-weight: bolder;
+            color:white;
+            width:20em;
+        } */
+
+        .singleMovieImage {
+     width:20em;
+
+        }
+        .singleMovieDescription{
+            display: grid;       
+            font-size: 16px;
+
+        }
+      }
