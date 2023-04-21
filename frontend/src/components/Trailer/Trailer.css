@@ -1,7 +1,8 @@
 .videosContainer{
     display: flex;
-    justify-content: start;
+    justify-content: space-around;
     border-radius: 12px;
+    width:60vw;
     row-gap: 2em;
     column-gap: 2em;
     border:10px solid #102440;
@@ -20,8 +21,40 @@
     display: grid;
 
 }
+.trailers {
+    width:600px;
+    height:400px;
+}
 .trailersTitle{
 
 text-align: center;
 color:white;
 }
+
+
+@media (max-width: 1200px) {
+    .videosContainer{
+        width:80vw;
+
+    }
+    .trailers {
+        width:350px;
+        height:220px;
+    }
+
+.singleVideoContainer{
+    width:10em;
+
+}
+
+    .singleVideoContainer video{
+        display: grid;
+        width:10em;
+    }
+
+  }
+
+
+
+
+
