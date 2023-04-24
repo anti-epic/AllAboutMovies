@@ -40,3 +40,26 @@ position: relative;
     text-align: center;
     color: white;
 }
+
+
+@media (min-width: 1px) and (max-width: 800px) {
+
+    .ratingCard{
+
+
+        height: 8em;
+        margin:.5em;
+        width:4em;
+
+        overflow: hidden;
+
+        }
+ 
+
+        .ratingSingleMovieImage{
+
+            height: 6em;
+            width:4em;
+        }
+
+          }

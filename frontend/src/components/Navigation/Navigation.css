@@ -101,15 +101,13 @@ body {
         font-size: 14px;
 
     }
-   body {
-     width:100vw;
-     overflow-x: hidden;
-    }
+
     .NavbarWatchlist{
     margin-top: .5em;
     margin-left:2em;
 
 
     }
+
 
   }
