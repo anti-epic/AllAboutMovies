@@ -67,7 +67,7 @@
   .singleMovieMoneyContainer{
 position: absolute;
 bottom: 0;
-right: 0;
+right: -14em;
 display: grid;
     margin-top:5em;
     grid-template-columns: 1fr 1fr 1fr;
@@ -251,50 +251,13 @@ display: grid;
             height: 75em;
             background-position: 'right';
         }
-/*
-        .singleMovieDescription{
-            position:relative;
-            margin-top: 2em;
-            font-size: 14px;
-        }
-        .singleMovieRating{
-            position:relative;
-
-        }
-        .singleMovieRuntime{
-            font-size: 12px;
-            display: inline;
-            margin-left: .5em;
-        }
-        .singleMovieImage {
-            margin-top: 2.5em;
-            margin-bottom: 2.5em;
-            display: grid;
-            justify-content: center;
-            position:relative;
-
-        }
-
-        .imageContainer{
-            display: grid;
-            justify-content: center;
-        }
-
-        .singleMovieTitle {
-            margin-top:6em;
-            position:relative;
-            font-size: 22px;
-            font-weight: bolder;
-            color:white;
-            width:20em;
-        } */
 
         .singleMovieImage {
      width:20em;
 
         }
         .singleMovieDescription{
-            display: grid;       
+            display: grid;
             font-size: 16px;
 
         }

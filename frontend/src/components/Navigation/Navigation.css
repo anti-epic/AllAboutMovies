@@ -70,10 +70,8 @@ body {
 
 }
 .navButton{
-
-width:35em;
-margin-left:5em;
-
+    width:35em;
+    margin-left:5em;
 }
 
 
@@ -95,9 +93,9 @@ margin-left:5em;
 
  .hidden {
     display:none;
-   box-shadow: 1px 1px 2px gray;
-  overflow: hidden;
-   padding: 1%;
+    box-shadow: 1px 1px 2px gray;
+    overflow: hidden;
+    padding: 1%;
  }
 
 
@@ -105,14 +103,14 @@ margin-left:5em;
 
 @media (min-width: 1px) and (max-width: 500px) {
     .navTitle {
-      margin-top:.5em;
+        margin-top:.5em;
         font-size: 12px;
 
     }
 
     .NavbarWatchlist{
-    margin-top: .5em;
-    margin-left:2em;
+        margin-top: .5em;
+        margin-left:2em;
 
 
     }
@@ -122,9 +120,9 @@ margin-left:5em;
     }
     .navButton{
         margin-top: .5em;
-width:13em;
-display: flex;
-margin-left: 0em;
+        width:13em;
+        display: flex;
+        margin-left: 0em;
     }
 
   }
@@ -134,7 +132,7 @@ margin-left: 0em;
 
 @media (min-width: 501px) and (max-width: 800px) {
     .navTitle {
-      margin-top:.5em;
+        margin-top:.5em;
         font-size: 14px;
 
     }
