@@ -6,7 +6,7 @@
    grid-auto-flow: column;
     font-weight: bold;
     margin:.5em;
-    width:60em;
+
     height: 18em;;
     color:white;
     overflow: hidden;
@@ -53,3 +53,35 @@
             display: grid;
             justify-content: center;
         }
+
+ @media (min-width: 1px) and (max-width: 700px) {
+
+    .searchCard{
+        width:22em;
+        height: 10em;
+        overflow-y: scroll;
+
+    }
+
+    .searchSingleMovieImage {
+        width: 9em;
+        height: 10em;
+        margin-right:.3em;
+        }
+
+        .searchTitle{
+            font-size: 14px;
+            height: 2em;
+        }
+        .searchDate{
+      font-size: 8px;
+            height: 2em;
+
+        }
+
+        .searchDescription{
+            font-size: 10px;
+            width:40vw;
+            margin-top: 0em;
+        }
+                  }
