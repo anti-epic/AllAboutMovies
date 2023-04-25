@@ -6,6 +6,7 @@
     justify-items: center;
     align-items: center;
     height:3.1em;
+    grid-template-areas: "title" "watchlist" "userNavButton"
 }
 
 .navTitle {
@@ -13,14 +14,12 @@
     text-decoration: none;
     width:12em;
     grid-template-columns: .15fr 1fr;
+    grid-area: title;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: 100;
-    /* font-family: 'Tilt Prism', cursive; */
-    /* font-family: 'Wallpoet', cursive; */
     font-family: 'Rubik 80s Fade', cursive;
- /* rgba(225, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 61%), linear-gradient(rgb(97, 183, 217) 52%,  60%, rgb(78, 99, 132) 61%); */
     color:  rgba(255, 255, 255, 1) ;
 }
 
@@ -28,6 +27,7 @@
     align-content: center;
     font-size: 14px;
     border: 0;
+    grid-area: watchlist;
     display: grid;
     justify-content: center;
     font-family: 'Alfa Slab One', cursive;
@@ -35,12 +35,10 @@
     background-color:#102440;
     cursor: pointer;
     text-decoration: none;
-    margin-left: -15em;
-}
-
-.navSessionContainer{
 
 }
+
+
 .NavLogoImage{
     width:3em;
 
@@ -55,7 +53,10 @@ body {
 
 .navUserInfo{
     position: absolute;
+    justify-content: end;
+    align-content: end;
     margin-top: -.6em;
+
 }
 
 .navButton button{
@@ -71,9 +72,11 @@ body {
 
 
 .userNavButton{
-    margin-left:4em;
+
+    margin-left:10em;
     font-size: 14px;
     border: 0;
+    grid-area: userNavButton;
     font-family: 'Alfa Slab One', cursive;
     color: white;
     background-color:#102440;
@@ -88,3 +91,23 @@ body {
   overflow: hidden;
    padding: 1%;
  }
+
+
+
+
+@media (min-width: 1px) and (max-width: 800px) {
+    .navTitle {
+      margin-top:.5em;
+        font-size: 14px;
+
+    }
+
+    .NavbarWatchlist{
+    margin-top: .5em;
+    margin-left:2em;
+
+
+    }
+
+
+  }

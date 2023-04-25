@@ -63,3 +63,28 @@ text-decoration: none;
         font-weight: bolder;
         margin-bottom:2em;
     }
+
+
+    @media (min-width: 1px) and (max-width: 800px) {
+
+.watchlistCard{
+
+
+    height: 8em;
+    margin:.5em;
+    width:4em;
+
+    overflow: hidden;
+
+    }
+.movieTitle{
+    font-size: 10px;
+}
+
+    .watchlistSingleMovieImage{
+
+        height: 6em;
+        width:4em;
+    }
+
+      }
