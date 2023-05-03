@@ -2,28 +2,25 @@
     display: flex;
     justify-content: space-around;
     border-radius: 12px;
-    width:60vw;
+    width:100vw;
+    justify-content: center;
     row-gap: 2em;
     column-gap: 2em;
     border:10px solid #102440;
+    overflow: hidden;
 }
 
 
 
-.singleVideoContainer{
-    display: grid;
 
-    justify-content: center;
-
-}
 
 .singleVideoContainer video{
     display: grid;
 
 }
 .trailers {
-    width:600px;
-    height:400px;
+    width:40vw;
+    height:40vw;
 }
 .trailersTitle{
 
@@ -32,29 +29,19 @@ color:white;
 }
 
 
-@media (max-width: 1200px) {
-    .videosContainer{
-        width:80vw;
 
-    }
+@media (min-width: 1px) and (max-width: 800px) {
     .trailers {
-        width:350px;
-        height:220px;
-    }
-
-.singleVideoContainer{
-    width:10em;
-
-}
-
-    .singleVideoContainer video{
-        display: grid;
-        width:10em;
+        width:40vw;
+        height:30vw;
     }
 
   }
 
+  @media (min-width: 1000px) {
+    .trailers {
+        width:45vw;
+        height:40vw;
+    }
 
-
-
-
+  }
