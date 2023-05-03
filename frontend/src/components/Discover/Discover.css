@@ -1,80 +1,79 @@
 .discoverSingleMovie {
-
-    animation: fadeIn 2s;
-    margin-left: 1em;
+  animation: fadeIn 2s;
+  margin-left: 1em;
 }
-.discoverMovies{
-    display: flex;
-    margin-top: 10em;
-    width:250%;
-    position: relative;
-   }
-   .discoverMovies:hover{
-    animation-play-state: paused;
-   }
+.discoverMovies {
+  display: flex;
+  margin-top: 10em;
+  width: 250%;
+  position: relative;
+}
+.discoverMovies:hover {
+  animation-play-state: paused;
+}
 
-   @keyframes marquee {
-    0% {
-        left: 0;
-    }
-    100% {
-        left: -177%;
-    }
-
+@keyframes marquee {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -177%;
+  }
 }
 .animateDiscover {
-    animation: marquee 60s linear infinite;
+  animation: marquee 60s linear infinite;
 
-    animation-delay: 2s;
-    transform: translate(0, -50%);
+  animation-delay: 2s;
+  transform: translate(0, -50%);
 }
 
-   .discoverSingleMovieImage{
-       z-index: -1;
+.discoverSingleMovieImage {
+  z-index: -1;
+}
+.discoverButtonHeader {
+  font-size: 20px;
+  display: grid;
+  justify-content: center;
+  text-shadow: 1px 1px 2px black;
+  font-family: "Alfa Slab One", cursive;
+  color: white;
+  text-decoration: underline;
+}
 
-   }
-   .discoverButtonHeader{
-       font-size: 20px;
-       display: grid;
-       justify-content: center;
-       text-shadow: 1px 1px 2px black;
-       font-family: 'Alfa Slab One', cursive;
-       color: white;
-       text-decoration:underline;
-   }
+.discoverSingleMovieTitle {
+  margin-left: 0.5em;
+  position: relative;
+  font-size: 16px;
+  font-weight: bolder;
+  color: black;
+}
 
-   .discoverSingleMovieTitle {
-       margin-left:.5em;
-       position: relative;
-       font-size: 16px;
-       font-weight: bolder;
-       color:black;
-   }
+.discoverSingleMovieRating {
+  display: flex;
+  position: relative;
+  border: 1px solid #102440;
+  width: 2em;
+  height: 2em;
+  background-color: #102440;
+  color: white;
+  font-size: 16px;
+  font-weight: lighter;
+  justify-content: center;
+  border-radius: 1em;
+  align-items: center;
+  margin-left: 0.2em;
+  margin-top: -1em;
+  z-index: 0;
+}
+.fa-percent {
+  margin-left: 0.1em;
+}
 
-   .discoverSingleMovieRating{
-       display: flex;
-       position: relative;
-       border:1px solid #102440;;
-       width:2em;
-       height: 2em;
-       background-color: #102440;
-       color:white;
-       font-size: 16px;
-       font-weight:lighter;
-      justify-content: center;
-       border-radius: 1em;
-       align-items: center;
-       margin-left:.2em;
-       margin-top: -1em;
-       z-index: 0;
-   }
-   .fa-percent {
-   margin-left: .1em;
-   }
-
-
-   @keyframes fadeIn {
-
-       0% { opacity: 0; }
-       100% { opacity: 1; }
-     }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

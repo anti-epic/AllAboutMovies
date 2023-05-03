@@ -1,19 +1,19 @@
 .castContainer {
-    display: grid;
+    display: flex;
+    flex-wrap: wrap;
     margin-top:1em;
     justify-content: center;
     margin-bottom: 1em;
     border-radius: 12px;
     overflow-y: scroll;
     border:10px solid #102440;
-    height: 30vw;
+    height: 40vw;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 
 }
 
 .castComponentContainer{
 display: grid;
-width:75%;
 height: 40%;
 justify-content: center;
 }
@@ -22,7 +22,7 @@ justify-content: center;
 .singleCastCard{
     display: grid;
     margin:1em;
-    width:10em;
+    width:18vw;
     border-radius: 25px;
     background-color: #92aaca;
 }
@@ -48,6 +48,21 @@ justify-content: center;
 }
 
 .singleCastImage{
-    width: 10em;
+    width: 18vw;
     display: grid;
+}
+
+
+
+@media (min-width: 1px) and (max-width: 700px) {
+    .castName{
+        font-size: 12px;
+
+    }
+    .singleCastCard{
+        border-radius: 12px;
+
+    }
+
+
 }

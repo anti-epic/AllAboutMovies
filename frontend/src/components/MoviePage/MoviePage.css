@@ -8,6 +8,9 @@
   border-bottom: 0.3em solid #081220;
   z-index: -2;
 }
+  .singleMovieContainer {
+    overflow-x: hidden;
+  }
 
 .singleMovieDescription {
   position: relative;
@@ -65,13 +68,13 @@
 .singleMovieMoneyContainer {
   position: absolute;
   bottom: 0;
-  right: -14em;
   display: grid;
   margin-top: 5em;
+  right: 0;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   font-size: 16px;
-  width: 75em;
+  width: 40em;
 }
 .singleMovieRevenue {
   display: grid;
@@ -163,6 +166,7 @@
 .rContainer {
   display: grid;
   justify-content: center;
+
 }
 
 .loggedInExclusiveOptions {
@@ -177,6 +181,8 @@
 .ratingContainer {
   display: grid;
   justify-content: center;
+
+  margin-left: -4em;
 }
 
 .CastComponentContainer {
@@ -242,7 +248,7 @@
     width: 30em;
   }
   .singleMovieMoneyContainer {
-    margin-right: 13em;
+
     width: 45em;
   }
 
@@ -256,8 +262,7 @@
 
   .CastComponentContainer {
     display: flex;
-    width: 130vw;
-
+    justify-content: start;
 
   }
 }
@@ -266,11 +271,11 @@
   .singleMovieContainer {
 
     width:100vw;
-    overflow-x: hidden;
+
   }
   .singleMovieTopContainer {
     display: flex;
-    overflow-x: hidden;
+
   }
 
   .singleMovieImage {
@@ -293,8 +298,8 @@
   }
   .singleMovieMoneyContainer {
     font-size: 10px;
-    margin-right: 12em;
-    width: 36em;
+    width: 20em;
+    right:6em;
   }
 
   .memberContainer {
@@ -322,7 +327,6 @@
 
   .CastComponentContainer {
     display: flex;
-    width: 130vw;
     justify-content: start;
   }
 

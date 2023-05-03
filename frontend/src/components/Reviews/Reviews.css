@@ -2,7 +2,7 @@
     border: .3em solid #081220;
     display: grid;
     border-radius: 25px;
-    width:60em;
+    width:100vw;
     background-color:#102440;
     position: relative;
     z-index: 0;
@@ -27,6 +27,6 @@
 .singleReviewUser{
     font-weight: bolder;
     display: grid;
-    width:10em;
+    width:10vw;
 
 }

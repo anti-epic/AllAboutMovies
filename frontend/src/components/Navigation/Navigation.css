@@ -6,7 +6,7 @@
     justify-items: center;
     align-items: center;
     height:3.1em;
-    grid-template-areas: "title" "watchlist" "userNavButton"
+    grid-template-areas: "title" "watchlist" "userNavButton";
 }
 
 .navTitle {
