@@ -1,264 +1,341 @@
-.singleMovieTopContainer{
-    display: grid;
-    grid-template-columns: 2fr .6fr 1fr 1fr;
+.singleMovieTopContainer {
+  display: grid;
+  grid-template-columns: 2fr 0.6fr 1fr 1fr;
 
-    position: relative;
-    color:white;
-    border-top: 0.3em solid #081220;
-    border-bottom: 0.3em solid #081220;
-    z-index: -2;
+  position: relative;
+  color: white;
+  border-top: 0.3em solid #081220;
+  border-bottom: 0.3em solid #081220;
+  z-index: -2;
 }
 
-
-
-.singleMovieDescription{
-    position:relative;
-    margin-top: 2em;
-    font-size: 14px;
+.singleMovieDescription {
+  position: relative;
+  margin-top: 2em;
+  font-size: 14px;
 }
-.singleMovieRating{
-    position:relative;
-
+.singleMovieRating {
+  position: relative;
 }
-.singleMovieRuntime{
-    font-size: 12px;
-    display: inline;
-    margin-left: .5em;
+.singleMovieRuntime {
+  font-size: 12px;
+  display: inline;
+  margin-left: 0.5em;
 }
 .singleMovieImage {
-    margin-top: 2.5em;
-    margin-bottom: 2.5em;
-    display: grid;
-    justify-content: center;
-    position:relative;
-
+  margin-top: 2.5em;
+  margin-bottom: 2.5em;
+  display: grid;
+  justify-content: center;
+  position: relative;
 }
 
-.imageContainer{
-    display: grid;
-    justify-content: center;
+.imageContainer {
+  display: grid;
+  justify-content: center;
 }
 
 .singleMovieTitle {
-    margin-top:6em;
-    position:relative;
-    font-size: 22px;
-    font-weight: bolder;
-    color:white;
-    width:20em;
+  margin-top: 6em;
+  position: relative;
+  font-size: 22px;
+  font-weight: bolder;
+  color: white;
+  width: 20em;
 }
 
-.overlay{
-    position:absolute;
-    top:0;right:0;left:0;bottom:0;
-    width:100%;
-    height: 100%;
-    background-color:rgba(0,0,0,0.7);
-    z-index: -1;
-  }
-
-
-  .singleMovieGenres{
-    display: inline-block ;
-    font-size: 12px;
-    margin-left:.5em;
-  }
-
-  .singleMovieMoneyContainer{
-position: absolute;
-bottom: 0;
-right: -14em;
-display: grid;
-    margin-top:5em;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: space-between;
-    font-size: 16px;
-    width:75em;
-  }
-.singleMovieRevenue{
-    display: grid;
-}
-.singleMovieBudget{
-    display: grid;
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: -1;
 }
 
-
-  .singleMovieRating{
-    display: grid;
-    border:1px solid #102440;
-    width:5em;
-    height: 5em;
-    background-color: #102440;
-    color:white;
-    text-align: center;
-   justify-content: center;
-    border-radius: 1em;
-    align-items: center;
-    margin-top:10em;
-
+.singleMovieGenres {
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 0.5em;
 }
 
-
-.createReviewButton{
-    display: flex;
-    align-content:  flex-end;
-    position: absolute;
-    bottom: 1em;
-    border: 0px;
-    color: white;
-    background-color: transparent;
-    font-size: 18px;
-    right: 5em;
-    border-bottom: 10px solid #081220;
-    border-radius: 40px;
-    cursor: pointer;
+.singleMovieMoneyContainer {
+  position: absolute;
+  bottom: 0;
+  right: -14em;
+  display: grid;
+  margin-top: 5em;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  font-size: 16px;
+  width: 75em;
 }
-.createReviewButton:hover, .createReviewButton:active,.createReviewButton:visited  {
-    background-color: transparent;
+.singleMovieRevenue {
+  display: grid;
 }
-
-
-.disabledCreateReview button{
-    background-color: grey;
-    color:black
-
-
+.singleMovieBudget {
+  display: grid;
 }
 
-
-
-.leaveReviewButton{
-    display: grid;
-    justify-content: center;
+.singleMovieRating {
+  display: grid;
+  border: 1px solid #102440;
+  width: 5em;
+  height: 5em;
+  background-color: #102440;
+  color: white;
+  text-align: center;
+  justify-content: center;
+  border-radius: 1em;
+  align-items: center;
+  margin-top: 10em;
 }
 
+.createReviewButton {
+  display: flex;
+  align-content: flex-end;
+  position: absolute;
+  bottom: 1em;
+  border: 0px;
+  color: white;
+  background-color: transparent;
+  font-size: 18px;
+  right: 5em;
+  border-bottom: 10px solid #081220;
+  border-radius: 40px;
+  cursor: pointer;
+}
+.createReviewButton:hover,
+.createReviewButton:active,
+.createReviewButton:visited {
+  background-color: transparent;
+}
 
+.disabledCreateReview button {
+  background-color: grey;
+  color: black;
+}
+
+.leaveReviewButton {
+  display: grid;
+  justify-content: center;
+}
 
 .leaveReviewButton button {
-    cursor: pointer;
-    color: #92aaca;
-    font-size: 16px;
-    border: 0.3em solid #081220;
-    border-radius: 0.5em;
-    width: 12em;
-    height: 3em;
-    background-color: transparent;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-family: sans-serif;
-    letter-spacing: 0.1em;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    margin: .2em;
-    margin-top:2em;
-    margin-bottom: 3.5em;
-
-
-
+  cursor: pointer;
+  color: #92aaca;
+  font-size: 16px;
+  border: 0.3em solid #081220;
+  border-radius: 0.5em;
+  width: 12em;
+  height: 3em;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin: 0.2em;
+  margin-top: 2em;
+  margin-bottom: 3.5em;
 }
 
-
 .leaveReviewButton button:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 70%;
-    height: 100%;
-    background:linear-gradient(90deg, transparent, #ffffff71, transparent);
-    transform: translateX(-180px) skew(-20deg);
-    transition: transform 0.4s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, #ffffff71, transparent);
+  transform: translateX(-180px) skew(-20deg);
+  transition: transform 0.4s;
 }
 
 .leaveReviewButton button:hover::before {
-    transform: translateX(220px) skew(-20deg)
+  transform: translateX(220px) skew(-20deg);
 }
-.rContainer{
+.rContainer {
+  display: grid;
+  justify-content: center;
+}
+
+.loggedInExclusiveOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-flow: row;
+}
+
+.watchlistContainer {
+  display: grid;
+}
+.ratingContainer {
+  display: grid;
+  justify-content: center;
+}
+
+.CastComponentContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.memberOptions {
+  cursor: pointer;
+  color: #92aaca;
+  font-size: 12px;
+  border: 0.3em solid #081220;
+  border-radius: 0.5em;
+  width: 20em;
+  height: 3em;
+  background-color: #102440;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1em;
+  display: grid;
+  align-content: center;
+}
+
+.memberOptions:focus {
+  background-color: #92aaca;
+  color: #102440;
+  border: 0px;
+  text-decoration: none;
+}
+.MovieButtonsContainer {
+  display: grid;
+  justify-content: center;
+}
+.memberContainer {
+  display: grid;
+  column-gap: 1em;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media (min-width: 701px) and (max-width: 800px) {
+  .singleMovieContainer {
+    overflow-x: hidden;
+  }
+
+  .singleMovieTopContainer {
+    grid-template-columns: 2fr 0.5fr 0.2fr 0.2fr;
+
+    height: 30em;
+    background-position: "right";
+  }
+
+  .singleMovieImage {
+    width: 15em;
+  }
+  .singleMovieDescription {
     display: grid;
+    font-size: 14px;
+    width: 30em;
+  }
+  .singleMovieMoneyContainer {
+    margin-right: 13em;
+    width: 45em;
+  }
+
+  .ratingContainer {
+    display: grid;
+    margin-top: 0.7em;
+    width: 35em;
+    margin-left: -6em;
     justify-content: center;
+  }
+
+  .CastComponentContainer {
+    display: flex;
+    width: 130vw;
+
+
+  }
 }
 
+@media (min-width: 1px) and (max-width: 700px) {
+  .singleMovieContainer {
 
-.loggedInExclusiveOptions{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-auto-flow: row;
+    width:100vw;
+    overflow-x: hidden;
+  }
+  .singleMovieTopContainer {
+    display: flex;
+    overflow-x: hidden;
+  }
 
-}
+  .singleMovieImage {
+    width: 6em;
+  }
+  .singleMovieDescription {
+    font-size: 12px;
+    width: 16em;
+  }
+  .singleMovieTitle {
+    margin-top: 1em;
+    font-size: 14px;
+    width: 15em;
+  }
+  .singleMovieRating {
+    margin-top: 5em;
+    width: 3em;
+    height: 3em;
+    font-size: 12px;
+  }
+  .singleMovieMoneyContainer {
+    font-size: 10px;
+    margin-right: 12em;
+    width: 36em;
+  }
 
-    .watchlistContainer{
-        display: grid;
-    }
-.ratingContainer{
-    display: grid;
+  .memberContainer {
+    width: 20em;
+    margin-top: 5em;
+  }
+
+  .memberOptions {
+    width: 7em;
+  }
+
+  .ratingContainer {
+    position: absolute;
+    width: 2em;
+    margin-left:16em;
     justify-content: center;
+  }
+  .widget-ratings{
+
+    width:16em;
+
+  }
+
+
+
+  .CastComponentContainer {
+    display: flex;
+    width: 130vw;
+    justify-content: start;
+  }
+
+  .watchlistSingleMovieContainerAdd > .watchlistButton {
+    width: 15em;
+    font-size: 9px;
+  }
+  .watchlistSingleMovieContainerDelete > .watchlistButton {
+    width: 17em;
+    font-size: 9px;
+  }
+  .loggedInExclusiveOptions > .watchlistContainer {
+    height: 4em;
+    font-size: 9px;
+  }
 }
-
-    .CastComponentContainer{
-        display: flex;
-        justify-content: center;
-    }
-
-
-    .memberOptions{
-        cursor: pointer;
-        color: #92aaca;
-        font-size: 12px;
-        border: 0.3em solid #081220;
-        border-radius: 0.5em;
-        width: 20em;
-        height: 3em;
-        background-color:#102440;
-        text-transform: uppercase;
-        font-weight: bold;
-        font-family: sans-serif;
-        letter-spacing: 0.1em;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    margin-top:1em;
-    display: grid;
-    align-content: center
-    }
-
-    .memberOptions:focus {
-        background-color:  #92aaca;
-        color: #102440;
-        border:0px;
-        text-decoration:none;
-    }
-.MovieButtonsContainer{
-    display: grid;
-    justify-content:center;
-}
-    .memberContainer{
-        display: grid;
-        column-gap: 1em;
-        grid-template-columns:1fr 1fr 1fr;
-    }
-
-
-    @media (min-width: 1px) and (max-width: 981px) {
-
-        .singleMovieContainer{
-
-            height: 110em;
-        }
-        .singleMovieTopContainer{
-            grid-template-columns: 2fr .5fr .2fr .2fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-            height: 75em;
-            background-position: 'right';
-        }
-
-        .singleMovieImage {
-     width:20em;
-
-        }
-        .singleMovieDescription{
-            display: grid;
-            font-size: 16px;
-
-        }
-      }
