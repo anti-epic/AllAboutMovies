@@ -239,26 +239,93 @@ display: grid;
     }
 
 
-    @media (min-width: 1px) and (max-width: 981px) {
+    @media (min-width: 701px) and (max-width: 800px) {
 
         .singleMovieContainer{
 
             height: 110em;
+            overflow-x:hidden ;
         }
+
         .singleMovieTopContainer{
             grid-template-columns: 2fr .5fr .2fr .2fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-            height: 75em;
+
+            height: 30em;
             background-position: 'right';
         }
 
         .singleMovieImage {
-     width:20em;
+     width:15em;
 
         }
         .singleMovieDescription{
             display: grid;
-            font-size: 16px;
+            font-size: 14px;
+            width:30em;
 
         }
+        .singleMovieMoneyContainer{
+
+                margin-right: 13em;
+                width:45em;
+              }
       }
+
+
+    @media (min-width: 1px) and (max-width: 700px) {
+     .singleMovieContainer{
+            height: 110em;
+            overflow-x:hidden ;
+        }
+        .singleMovieTopContainer{
+display:flex
+        }
+
+        .singleMovieImage {
+     width:6em;
+
+      }
+      .singleMovieDescription{
+        font-size: 12px;
+        width:16em;
+
+    }
+    .singleMovieTitle {
+        margin-top:1em;
+        font-size: 14px;
+        width:15em;
+    }
+    .singleMovieRating{
+      margin-top: 5em;
+      width:3em;
+      height:3em;
+      font-size: 12px;
+
+    }
+    .singleMovieMoneyContainer{
+        font-size: 10px;
+        margin-right: 12em;
+        width:36em;
+      }
+
+
+      .memberContainer{
+        display: grid;
+        column-gap: 1em;
+      width:20em;
+    }
+
+
+    .memberOptions{
+        cursor: pointer;
+        color: #92aaca;
+        font-size: 12px;
+        border: 0.3em solid #081220;
+        border-radius: 0.5em;
+        width: 7em;
+
+        height: 3em;
+
+    }
+
+    }
